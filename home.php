@@ -1,7 +1,9 @@
-<?php
-include 'top.php';
-?>
-
+	<?php
+	/*
+	include 'top.php';
+	*/
+	?>
+	<p> testing </p>
 
     </body>
 </html>
