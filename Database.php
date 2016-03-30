@@ -62,7 +62,7 @@ class Database {
         $debugMe = false;
 
         if ($debugMe) {
-            print "<p>myDatabase.php->numRows " . $query . "values= ";
+            print "<p>database.php->numRows " . $query . "values= ";
             print_r($values);
             print "</pre></p>";
         }
