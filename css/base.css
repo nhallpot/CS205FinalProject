@@ -22,16 +22,28 @@ figure{
     border-radius: 0.4em;
     padding: 0.5em;
 }
+
+#index article {
+    margin: auto;
+    text-align: center;
+}
+
 h1, h2, h3, h4, h5, h6{
     padding: 1.5em 0 .8em 0;
 }
+
 header{
     overflow: auto; /* forces header to fit to figure */
+    max-width: 30%;
+    margin: auto;
 }
 
 header h1{
-    padding-bottom: 2em;
-    padding-top: 75px;
+    padding: 1em;
+    text-align: center;
+    margin: 5em auto 1em auto;
+    font-size: 15pt;
+    border: black 1.5px solid;   
 }
 
 img{
@@ -67,10 +79,31 @@ p:nth-child(even){
 }
 
 /*------------------------   nav section only  ------------------------------ */
-nav ol li{
-    display: inline-block;
+nav ol {
     list-style-type: none;
-    padding-right: 2em;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+nav ol li {
+    margin-top: 1em;
+    display: inline-block;
+}
+
+nav ol li a {
+    text-decoration: none;
+    color: black;
+    border: black solid 1.5px;
+    padding: 1em 2em;
+}
+
+nav ol li a:hover {
+    background: lightgray;
+}
+
+li a .activePage {
+    background: lightgray;
 }
 
 
