@@ -1,5 +1,4 @@
 <?php
-	include "top.php";
 	$values = "";
 	$colorArray = array(
 		0 => "B",
@@ -20,7 +19,7 @@
 			}
 			elseif($j==2)
 			{
-				for($k=0;$k<6;$k++)
+				for($k=0;$k<7;$k++)
 				{
 					$values.="('".$color.(string)$j."-".(string)$k."','0','0','0'),";
 				}
