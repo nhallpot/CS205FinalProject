@@ -12,28 +12,16 @@
             print '<li><a href="index.php">Home</a></li>';
         }
         
-        if ($path_parts['filename'] == "sampleQuery") {
-            print '<li class="activePage"><a href="sampleQuery.php">Sample SELECT</a></li>';
+        if ($path_parts['filename'] == "help") {
+            print '<li class="activePage"><a href="help.php">Help</a></li>';
         } else {
-            print '<li><a href="sampleQuery.php">Sample SELECT</a></li>';
+            print '<li><a href="help.php">Help</a></li>';
         }
         
-        if ($path_parts['filename'] == "sampleQuery2") {
-            print '<li class="activePage"><a href="sampleQuery2.php">Sample INSERT</a></li>';
+        if ($path_parts['filename'] == "sorry") {
+            print '<li class="activePage"><a href="sorry.php">Play Sorry!</a></li>';
         } else {
-            print '<li><a href="sampleQuery2.php">Sample INSERT</a></li>';
-        }
-        
-        if ($path_parts['filename'] == "sampleQuery3") {
-            print '<li class="activePage"><a href="sampleQuery3.php">Sample SELECT (with ORDER)</a></li>';
-        } else {
-            print '<li><a href="sampleQuery3.php">Sample SELECT (with ORDER)</a></li>';
-        }
-        
-        if ($path_parts['filename'] == "sampleQuery4") {
-            print '<li class="activePage"><a href="sampleQuery4.php">Sample test (fails)</a></li>';
-        } else {
-            print '<li><a href="sampleQuery4.php">Sample test (fails)</a></li>';
+            print '<li><a href="sorry.php">Play Sorry!</a></li>';
         }
         ?>
     </ol>
