@@ -1,4 +1,7 @@
 <?php
+
+	// PHP Script to "start" the game by inserting data into the database. 
+	// SPACE TABLE
 	$values = "";
 	$colorArray = array(
 		0 => "B",
@@ -33,5 +36,16 @@
 
 	$query = 'INSERT INTO `Space` (`SpaceID`, `isStart`,`isSafety`,`isSlide`) VALUES'.$values;
 	$query = rtrim($query,',');	
-	print($query);
+
+	// PIECE TABLE
+	$values2="";
+	foreach ($colorArray as $color) {
+		for($j=1; $j <=4; $j++)
+		{
+			$values2.="('".$color."','".(string)$j."', '".$color."4-1'),";
+		}
+
+	}
+	$query2 = 'INSERT INTO `Piece` (`Color`, `Number`,`SpaceID`) VALUES'.$values2;
+	$query2 = rtrim($query2,',');	
 ?>
