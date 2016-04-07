@@ -9,10 +9,10 @@ include "top.php";
 ?>
 
 	<article>
-		<figure>
-			<img src="https://bmckalla.w3.uvm.edu/images/sorryBoard.jpg">
-		</figure>
-	</article>
+		<!-- Pawn test <figure class = "greenHome">
+			<img src="images/redPawn.png">
+		</figure> -->
+	</article> 
 
 <?php
 	include "footer.php";

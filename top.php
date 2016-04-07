@@ -7,8 +7,8 @@ include "lib/constants.php";
     <head>
         <title>Sorry!</title>
         <meta charset="utf-8">
-        <meta name="author" content="Mark me wrong">
-        <meta name="description" content="Mark me wrong for not changing this">
+        <meta name="author" content="Sorry!">
+        <meta name="description" content="Web version of Sorry!">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 

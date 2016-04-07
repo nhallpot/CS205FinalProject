@@ -7,8 +7,12 @@
 body{
     margin: 0 5% 0 5%;
 }
+
 article{
     padding: 2em;
+    border: thin solid darkslategray;
+    border-radius: 0.4em;
+    padding: 0.5em;
 }
 
 figcaption {
@@ -17,15 +21,16 @@ figcaption {
     text-align: center;
 }
 
-figure{
-    border: thin solid darkslategray;
-    border-radius: 0.4em;
-    padding: 0.5em;
-}
-
 #index article {
     margin: auto;
     text-align: center;
+    width: 50%;
+    background-image: url("../images/sorryBoard.jpg");
+    background-repeat: no-repeat;
+    width: 580px;
+    height: 580px;
+    margin-bottom: 2em;
+    position: relative;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -44,11 +49,6 @@ header h1{
     margin: 5em auto 1em auto;
     font-size: 15pt;
     border: black 1.5px solid;   
-}
-
-img{
-    border-radius: 0.4em;
-    max-width: 100%
 }
 
 p{
@@ -76,6 +76,60 @@ p:nth-child(even){
 
 .small {
     width: 150px;
+}
+
+/*------------------------   pawn positioning  ------------------------------ */
+
+.redStart {
+    position: absolute;
+    right: 160px;
+    bottom: 75px;
+}
+
+.redHome {
+    position: absolute;
+    right: 88px;
+    bottom: 255px;
+}
+
+.blueStart {
+    position: absolute;
+    left: 80px;
+    bottom: 160px;
+}
+
+.blueHome {
+    position: absolute;
+    left: 260px;
+    bottom: 82px;
+}
+
+.yellowStart {
+    position: absolute;
+    top: 75px;
+    left: 160px;
+}
+
+.yellowHome {
+    position: absolute;
+    left: 88px;
+    top: 255px;
+}
+
+.greenStart {
+    position: absolute;
+    right: 80px;
+    top: 155px;
+}
+
+.greenHome {
+    position: absolute;
+    top: 82px;
+    right: 260px;
+}
+
+img {
+     height: 30px;
 }
 
 /*------------------------   nav section only  ------------------------------ */
