@@ -2,7 +2,8 @@
 
 //##############################################################################
 //
-// Information on the rules of the game, and how our app works
+// This is where all of the game logic will go. Separate files for computer easy and computer hard. 
+// All of the database calls from post requests will be here
 // 
 //##############################################################################
 include "top.php";

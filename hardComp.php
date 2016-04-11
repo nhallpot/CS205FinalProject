@@ -2,7 +2,7 @@
 
 //##############################################################################
 //
-// Information on the rules of the game, and how our app works
+// Hard computer logic here. Will call in sorry.php
 // 
 //##############################################################################
 include "top.php";
