@@ -7,11 +7,23 @@
         
         
         if ($path_parts['filename'] == "index") {
-            print '<li class="activePage"><a href="index.php">Home</a></li>';
+            print '<li><a class="activePage" href="index.php">Home</a></li>';
         } else {
             print '<li><a href="index.php">Home</a></li>';
         }
         
+<<<<<<< HEAD
+        if ($path_parts['filename'] == "stats") {
+            print '<li><a class="activePage" href="stats.php">Stats</a></li>';
+        } else {
+            print '<li><a href="stats.php">Stats</a></li>';
+        }
+        
+        if ($path_parts['filename'] == "help") {
+            print '<li><a class="activePage" href="help.php">Help</a></li>';
+        } else {
+            print '<li><a href="help.php">Help</a></li>';
+=======
         if ($path_parts['filename'] == "help") {
             print '<li class="activePage"><a href="help.php">Help</a></li>';
         } else {
@@ -22,6 +34,7 @@
             print '<li class="activePage"><a href="sorry.php">Play Sorry!</a></li>';
         } else {
             print '<li><a href="sorry.php">Play Sorry!</a></li>';
+>>>>>>> refs/remotes/origin/master
         }
         ?>
     </ol>
