@@ -6,10 +6,14 @@
 // 
 //##############################################################################
 include "top.php";
+?>
 
-// Begin output
-print '<article>';
-print '<h2>Sample Page</h2>';
-print '</article>';
-include "footer.php";
+	<article>
+		<!-- Pawn test <figure class = "greenHome">
+			<img src="images/redPawn.png">
+		</figure> -->
+	</article> 
+
+<?php
+	include "footer.php";
 ?>
