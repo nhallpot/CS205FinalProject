@@ -16,13 +16,12 @@ print '<article>';
 // We will need an input for different combos for certain cards that can get split, as well as whether or not a sorry is avialable
 // And another input to choose which piece to move
 // Whenever there is a post request, we are drawing a new card
-print($deck);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
-{
+{	
 	$deck = new Deck(); // Instantiate a Deck that will be used throughout program.
 	$card = $deck.draw();
 }
-print("hello2");
 // Grab the current form data and store in variables
 // Grab the current position and add the value(s) to the specificed pieces
 
@@ -30,9 +29,9 @@ print("hello2");
 
 // Update database
 
-print('<form action="sorry.php" method="POST">
-		<label>'.$card.'</label>
-		<input type="submit" value="Draw Card">
+print('<form action="sorry.php" method="post">
+		<label>'.print_r($card).'</label>
+		<input type="submit" name="Draw Card" value="Draw Card"/>
 </form>');
 // When someone makes a post request, they will usually be making a move or making a decision. We need to know which card they drew
 

@@ -37,6 +37,7 @@
         
         public function __construct() {
             /* deck contains 5 ones, and four of every other */
+            
             for ($i = 0; $i < 5; $i++) {
                 $this->cards[$i] = new Card(1);
             }
