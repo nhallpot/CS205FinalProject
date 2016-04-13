@@ -37,6 +37,7 @@
         
         public function __construct() {
             /* deck contains 5 ones, and four of every other */
+            
             for ($i = 0; $i < 5; $i++) {
                 $this->cards[$i] = new Card(1);
             }
@@ -58,16 +59,13 @@
         }
         
         public function draw() {
-            return array_pop($this->cards);
+            $card = array_pop($this->cards);
+            return $card;
         }
         
         public function shuffle() {
-            for ($j = 0; $j <= count($this->cards); $j++) {
-                
-                $rand = mt_rand(0, count($this->cards)-1);
-                $temp = $this->cards[$rand];
-                $this->cards[$rand] = $this->cards[$j]; 
-                $this->cards[$j] = $temp;
+            if (!$this->isEmpty()) {
+                shuffle($this->cards);  
             }
         }
         
