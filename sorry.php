@@ -20,8 +20,11 @@ print '<article>';
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {	
 	$deck = new Deck(); // Instantiate a Deck that will be used throughout program.
-	$card = $deck.draw();
+	// $deck->shuffle();
+	$card = $deck->draw();
 }
+
+
 // Grab the current form data and store in variables
 // Grab the current position and add the value(s) to the specificed pieces
 
