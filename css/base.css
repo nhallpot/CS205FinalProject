@@ -55,7 +55,7 @@ header{
 
 .nav-cont{
     background-color: #f3f7f9;
-    height: 8.5%;
+    height: 12.5%;
     margin-left: -5%;
     position: absolute;
     top: 0;
@@ -174,18 +174,21 @@ p:nth-child(even){
     right: 260px;
 }
 
-img {
-     height: 30px;
+.nav-cont img {
+    height: 100%;
+    margin-left: 6%;
 }
+
+
+
 
 /*------------------------   nav section only  ------------------------------ */
 nav ol {
+    left: 29%;
     list-style-type: none;
     position: absolute;
-    top: 2px;
     right: 0;
-    left: 30%;
-    
+    top: 21%;
 }
 
 nav ol li {
@@ -197,7 +200,7 @@ nav ol li {
 nav ol li a {
     text-decoration: none;
     color: black;
-    padding: 1em 2em;
+    padding: 1.7em 2em;
     background-color: #f3f7f9;
 }
 
