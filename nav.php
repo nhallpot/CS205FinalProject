@@ -1,5 +1,5 @@
 <div class="nav-cont">
-
+    <a href="index.php" id="logo"><img src="images/sorrylogo.png" alt="logo">
     <!-- ######################     Main Navigation   ########################## -->
     <nav>
         <ol>
