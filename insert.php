@@ -18,36 +18,38 @@
 			{
 				for($k=0;$k<2;$k++)
 				{
-					$values.="('".$color.(string)$j."-".(string)$k."','0','0','0'),";
+					$values.="('".$color."','".(string)$j."-".(string)$k."','0','0','0'),";
 				}				
 			}
 			elseif($j==2)
 			{
 				for($k=0;$k<7;$k++)
 				{
-					$values.="('".$color.(string)$j."-".(string)$k."','0','0','0'),";
-				}
+					$values.="('".$color."','".(string)$j."-".(string)$k."','0','0','0'),";
+                }
 			}
 			else
 			{
-				$values.= "('".$color . (string)$j."','0','0','0'),";
+				$values.= "('".$color."','". (string)$j."','0','0','0'),";
 			}
 		}
 	}
 
-	$query = "INSERT INTO `Space` (`SpaceID`, `isStart`,`isSafety`,`isSlide`) VALUES ".$values;
+	$query = "INSERT INTO `Space` (`SpaceColor`,`SpaceNumber`, `isStart`,`isSafety`,`isSlide`) VALUES ".$values;
 	$query = rtrim($query,',');	
 	$quoteCount = substr_count($query, "'");
 
+	print($query);
+	print($quoteCount);
 	// Now that we have built the query, we need to insert it into the database. 
 	$records = $thisDatabaseWriter->insert($query, "", 0, 0, $quoteCount, 0, false, false);
-	// if($records)
-	// {
-	// 	print("<p> hey, it could have worked </p>");
-	// }
-	// else{
-	// 	print("<p> hey, it didnt work </p>");
-	// }
+	if($records)
+	{
+		print("<p> hey, it could have worked </p>");
+	}
+	else{
+		print("<p> hey, it didnt work </p>");
+	}
 	// PIECE TABLE
 	$values2="";
 	foreach ($colorArray as $color) {
