@@ -60,7 +60,7 @@
         
         public function draw() {
             $card = array_pop($this->cards);
-            return $card;
+            return $card->value;
         }
         
         public function shuffle() {
@@ -95,6 +95,14 @@
         public function updateDatabase() {
             /* access sql */
         }           
+    }
+
+    // The board is an array that stores all of the spaces 
+    class Board{
+        public function __construct() {
+            // Generate an array for all of the spaces
+            $this = array("B4-1","B4-0","B5","B6","B7","B8","B9","B10");
+        }
     }
 ?>
 
