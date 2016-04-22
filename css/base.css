@@ -34,13 +34,13 @@ figcaption {
 #index article {
     background-image: url("../images/board2.png");
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: 650px auto;
     box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.5);
-    height: 626px;
+    height: 630px;
     margin: auto auto 2em;
     position: relative;
     text-align: center;
-    width: 52%;
+    width: 630px;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -115,10 +115,18 @@ p:nth-child(even){
 
 /*------------------------   pawn positioning  ------------------------------ */
 
-.redStart {
+#redPawn1 {
     position: absolute;
-    right: 160px;
-    bottom: 75px;
+    left: 13px;
+    top: 5px;
+    height:45px;
+}
+
+#yellowPawn1 {
+    position: absolute;
+    left: 481px;
+    top: 590px;
+    height:45px;
 }
 
 .redHome {
@@ -167,7 +175,7 @@ p:nth-child(even){
 
 .nav-cont{
     background-color: #f3f7f9;
-    height: 12.5%;
+    height: 80px;
     margin-left: -5%;
     position: absolute;
     top: 0;
@@ -177,7 +185,7 @@ p:nth-child(even){
 }
 
 .nav-cont img {
-    height: 100%;
+    height: 80px;
     margin-left: 2%;
 }
 
@@ -186,11 +194,11 @@ p:nth-child(even){
 
 /*------------------------   nav section only  ------------------------------ */
 nav ol {
-    left: 29%;
+    left: 410px;
     list-style-type: none;
     position: absolute;
     right: 0;
-    top: 21%;
+    top: 15px;
 }
 
 nav ol li {
@@ -219,3 +227,15 @@ li a .activePage {
 }
 
 
+#updateButton{
+    top:400px;
+    position: absolute;
+
+}
+
+.pawn{
+    
+    left: 365px;
+    position: absolute;
+    top: 5px;
+}
