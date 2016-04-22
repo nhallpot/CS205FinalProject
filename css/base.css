@@ -115,10 +115,18 @@ p:nth-child(even){
 
 /*------------------------   pawn positioning  ------------------------------ */
 
-.redStart {
+#redPawn1 {
     position: absolute;
-    right: 160px;
-    bottom: 75px;
+    left: 13px;
+    top: 5px;
+    height:45px;
+}
+
+#yellowPawn1 {
+    position: absolute;
+    left: 481px;
+    top: 590px;
+    height:45px;
 }
 
 .redHome {
@@ -220,5 +228,14 @@ li a .activePage {
 
 
 #updateButton{
-    top:0px;
+    top:400px;
+    position: absolute;
+
+}
+
+.pawn{
+    
+    left: 365px;
+    position: absolute;
+    top: 5px;
 }
