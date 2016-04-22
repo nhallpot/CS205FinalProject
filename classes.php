@@ -37,6 +37,7 @@
         
         public function __construct() {
             /* deck contains 5 ones, and four of every other */
+            
             for ($i = 0; $i < 5; $i++) {
                 $this->cards[$i] = new Card(1);
             }
@@ -58,16 +59,13 @@
         }
         
         public function draw() {
-            return array_pop($this->cards);
+            $card = array_pop($this->cards);
+            return $card->value;
         }
         
         public function shuffle() {
-            for ($j = 0; $j <= count($this->cards); $j++) {
-                
-                $rand = mt_rand(0, count($this->cards)-1);
-                $temp = $this->cards[$rand];
-                $this->cards[$rand] = $this->cards[$j]; 
-                $this->cards[$j] = $temp;
+            if (!$this->isEmpty()) {
+                shuffle($this->cards);  
             }
         }
         
@@ -97,6 +95,14 @@
         public function updateDatabase() {
             /* access sql */
         }           
+    }
+
+    // The board is an array that stores all of the spaces 
+    class Board{
+        public function __construct() {
+            // Generate an array for all of the spaces
+            $this = array("B4-1","B4-0","B5","B6","B7","B8","B9","B10");
+        }
     }
 ?>
 

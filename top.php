@@ -18,6 +18,9 @@ include "lib/constants.php";
 
         <link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
 
+
+        <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <?php
         // %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
         //
