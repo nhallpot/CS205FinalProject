@@ -115,6 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// Move the space X number forward
 	else
 	{
+		echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.'"</div>'; // Inject div so they can grab from javascript
 		// Find the current position of the piece
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
 
