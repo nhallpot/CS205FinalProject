@@ -40,7 +40,11 @@
             var arrayIndex=0;
 
             function getCssProperty(elmId, property){
+<<<<<<< HEAD
+              console.log(spacePos);
+=======
               // console.log(spacePos);
+>>>>>>> refs/remotes/origin/master
                var elem = document.getElementById(elmId);
                return window.getComputedStyle(elem,null).getPropertyValue(property);
             }
@@ -54,6 +58,27 @@
                // imgObj.style.left =  getCssProperty(pawn,'left');
                //  imgObj.style.top =  getCssProperty(pawn,'top');
                for (x = 0; x < spacePos.length; x++) {
+<<<<<<< HEAD
+                  var arr = spacePos[x];
+                  if (Array.isArray(spacePos)) {
+                      // console.log(arr[0]);
+                      // console.log(parseInt(getCssProperty(pawn,'left')));
+                      // console.log(arr[0] === parseInt(getCssProperty(pawn,'left')));
+                
+                      if (arr[0] === parseInt(getCssProperty(pawn,'left')) && (arr[1] === parseInt(getCssProperty(pawn,'top')))) {
+                        arrayIndex = x;
+                        console.log(x);
+                      }
+                   if(arrayIndex===spacePos.length-1) {
+                        arrayIndex = -1;
+                      }
+
+                   // 1=spacePos.indexOf([getCssProperty(pawn,'left'),getCssProperty(pawn,'top')]);
+                   imgObj.style.left =spacePos[arrayIndex+2][0] + 'px';
+                   imgObj.style.top =spacePos[arrayIndex+2][1] + 'px';
+                }
+             }
+=======
                   arr = spacePos[x];
                   if (Array.isArray(arr)) {
                     // console.log(arr);
@@ -82,6 +107,7 @@
 
              //console.log(arrayIndex+2);
              // console.log(arr);
+>>>>>>> refs/remotes/origin/master
                
                // console.log(getCssProperty('myImage','left'));
             }
