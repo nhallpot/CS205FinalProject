@@ -99,7 +99,7 @@
 class Database {
 
     public $db;
-    const DB_DEBUG = false;
+    const DB_DEBUG = true;
      
     public function __construct($dbUserName, $whichPass, $dbName) {
         $this->db = null;
@@ -125,6 +125,7 @@ class Database {
                 break;
         }
 
+
         $query = NULL;
 
         $dsn = 'mysql:host=webdb.uvm.edu;dbname=';
@@ -133,6 +134,7 @@ class Database {
             print "<p>Username: " . $dbUserName;
             print "<p>DSN: " . $dsn . $dbName;
             print "<p>PW: " . $whichPass;
+
         }
 
         try {
@@ -266,7 +268,10 @@ class Database {
     //
     public function select($query, $values = "") {
 
+        print($query);
         $statement = $this->db->prepare($query);
+        print($statement->error);
+        print($db->error);
 
         if (is_array($values)) {
             $statement->execute($values);
