@@ -8,11 +8,10 @@
 include "top.php";
 ?>
 
-	<article>
-		<!-- Pawn test <figure class = "greenHome">
-			<img src="images/redPawn.png">
-		</figure> -->
-	</article> 
+<?php
+  include "board.php";
+?>
+	
 
 <?php
 	include "footer.php";
