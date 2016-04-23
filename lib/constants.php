@@ -1,5 +1,5 @@
 <?php
-define("DATABASE_NAME", strtoupper('NHALLPOT_205_Final_Project');
+define("DATABASE_NAME", strtoupper('NHALLPOT_205_Final_Project'));
 
 define("ADMIN_EMAIL", get_current_user() . "@uvm.edu");
 
