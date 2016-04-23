@@ -18,9 +18,12 @@ include "lib/constants.php";
 
         <link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
 
+<<<<<<< HEAD
+=======
 
         <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+>>>>>>> origin/master
         <?php
         // %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
         //
@@ -50,11 +53,12 @@ include "lib/constants.php";
 
         ?>	
 
+
     </head>
 
     <!-- **********************     Body section      ********************** -->
     <?php
     print '<body id="' . $PATH_PARTS['filename'] . '">';
-    include "header.php";
-    include "nav.php";
+    include "header.php"; 
+    include "nav.php";  
     ?>

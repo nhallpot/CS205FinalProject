@@ -8,12 +8,32 @@
 include "top.php";
 ?>
 
+<<<<<<< HEAD
+
+
+	<!--
+	<article>
+			<figure class = "redHome">
+				<img id = "redPawn" src="images/redPawn.png">
+			</figure>
+	</article>
+	-->
+
+
+<?php
+  include "board.php";
+?>
+=======
 	<article>
 	  <img id="redPawn1" class="pawn" src="images/redPawn.png" />
       <img id="redPawn2" class="pawn" src="images/redPawn.png" />
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
       <img id="redPawn3" class="pawn" src="images/redPawn.png" />
       <img id="redPawn4" class="pawn" src="images/redPawn.png" />
       <img id="yellowPawn1" class="pawn" src="images/yellowPawn.png" />
+>>>>>>> refs/remotes/origin/master
 	
 
 		<!-- Pawn test <figure class = "greenHome">

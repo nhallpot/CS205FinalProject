@@ -40,7 +40,11 @@
             var arrayIndex=0;
 
             function getCssProperty(elmId, property){
+<<<<<<< HEAD
               console.log(spacePos);
+=======
+              // console.log(spacePos);
+>>>>>>> refs/remotes/origin/master
                var elem = document.getElementById(elmId);
                return window.getComputedStyle(elem,null).getPropertyValue(property);
             }
@@ -50,14 +54,17 @@
             function move(pawn){
                imgObj = document.getElementById(pawn);
                imgObj.style.position= 'absolute'; 
+               var arr;
                // imgObj.style.left =  getCssProperty(pawn,'left');
                //  imgObj.style.top =  getCssProperty(pawn,'top');
                for (x = 0; x < spacePos.length; x++) {
+<<<<<<< HEAD
                   var arr = spacePos[x];
-                  if (spacePos.isArray()) {
-                      console.log(arr[0]);
-                      console.log(parseInt(getCssProperty(pawn,'left')));
-                      console.log(arr[0] === parseInt(getCssProperty(pawn,'left')));
+                  if (Array.isArray(spacePos)) {
+                      // console.log(arr[0]);
+                      // console.log(parseInt(getCssProperty(pawn,'left')));
+                      // console.log(arr[0] === parseInt(getCssProperty(pawn,'left')));
+                
                       if (arr[0] === parseInt(getCssProperty(pawn,'left')) && (arr[1] === parseInt(getCssProperty(pawn,'top')))) {
                         arrayIndex = x;
                         console.log(x);
@@ -67,10 +74,40 @@
                       }
 
                    // 1=spacePos.indexOf([getCssProperty(pawn,'left'),getCssProperty(pawn,'top')]);
-                   imgObj.style.left =spacePos[arrayIndex+1][0] + 'px';
-                   imgObj.style.top =spacePos[arrayIndex+1][1] + 'px';
+                   imgObj.style.left =spacePos[arrayIndex+2][0] + 'px';
+                   imgObj.style.top =spacePos[arrayIndex+2][1] + 'px';
                 }
              }
+=======
+                  arr = spacePos[x];
+                  if (Array.isArray(arr)) {
+                    // console.log(arr);
+                      // console.log(arr[0]);
+                      // console.log(parseInt(getCssProperty(pawn,'left')));
+                      // console.log(parseInt(getCssProperty(pawn,'left')));
+                      // console.log(parseInt(getCssProperty(pawn,'top')));
+                
+                  if (arr[0] === parseInt(getCssProperty(pawn,'left')) && (arr[1] === parseInt(getCssProperty(pawn,'top')))) {
+                        arrayIndex = x;
+                        // console.log(arr[0]);
+                        // console.log(arr[1]);
+                  }
+
+                   if(arrayIndex===spacePos.length-1) {
+                        arrayIndex = -1;
+                      }
+
+                   // 1=spacePos.indexOf([getCssProperty(pawn,'left'),getCssProperty(pawn,'top')]);
+              }
+            }
+                // console.log(spacePos[arrayIndex+2][0] + 'px');
+                // console.log(spacePos[arrayIndex+2][1] + 'px');
+                imgObj.style.left = spacePos[arrayIndex+2][0] + 'px';
+                imgObj.style.top = spacePos[arrayIndex+2][1] + 'px';
+
+             //console.log(arrayIndex+2);
+             // console.log(arr);
+>>>>>>> refs/remotes/origin/master
                
                // console.log(getCssProperty('myImage','left'));
             }
