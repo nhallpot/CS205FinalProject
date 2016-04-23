@@ -8,11 +8,17 @@
 include "top.php";
 ?>
 
+
+
 	<article>
-		<!-- Pawn test <figure class = "greenHome">
-			<img src="images/redPawn.png">
-		</figure> -->
-	</article> 
+			<figure class = "redHome">
+				<img id = "redPawn" src="images/redPawn.png">
+			</figure>
+	</article>
+
+	<form> 
+		<input type="button" value="Move pawn" onclick="moveRight('redPawn');"/>
+	</form> 
 
 <?php
 	include "footer.php";
