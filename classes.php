@@ -92,7 +92,7 @@
         public function __construct() {
         }
         
-        }           
-    }
+    }           
+    
 ?>
 
