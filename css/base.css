@@ -122,6 +122,33 @@ p:nth-child(even){
     height:45px;
 }
 
+#redPawn2 {
+    position: absolute;
+    height: 50px;
+    width: 35px;
+    left: 13px;
+    top: 5px;
+    height:45px;
+}
+
+#redPawn3 {
+    position: absolute;
+    height: 50px;
+    width: 35px;
+    left: 13px;
+    top: 5px;
+    height:45px;
+}
+
+#redPawn4 {
+    position: absolute;
+    height: 50px;
+    width: 35px;
+    left: 13px;
+    top: 5px;
+    height:45px;
+}
+
 #yellowPawn1 {
     position: absolute;
     left: 481px;
