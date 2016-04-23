@@ -38,23 +38,24 @@ include "lib/constants.php";
         // generally you dont need the admin on the web
 
         print "<!-- make Database connections -->";
-        $dbUserName = get_current_user() . '_reader';
+        $dbUserName = 'nhallpot_reader';
         $whichPass = "r"; //flag for which one to use.
         $dbName = DATABASE_NAME;
 
         $thisDatabaseReader = new Database($dbUserName, $whichPass, $dbName);
 
-        $dbUserName = get_current_user() . '_writer';
+        $dbUserName = 'nhallpot_writer';
         $whichPass = "w";
         $thisDatabaseWriter = new Database($dbUserName, $whichPass, $dbName);
 
         ?>	
+
 
     </head>
 
     <!-- **********************     Body section      ********************** -->
     <?php
     print '<body id="' . $PATH_PARTS['filename'] . '">';
-    include "header.php";
-    include "nav.php";
+    include "header.php"; 
+    include "nav.php";  
     ?>
