@@ -1,5 +1,7 @@
 <?php
 include "top.php";
+?>
+
 <link rel="stylesheet" type="text/css" href="css/base.css">
 //################################
 //This page acts as a simple GUI for displaying pre-canned queries from the database
@@ -167,3 +169,4 @@ print'</ol>';
 include "footer.php";
 
 ?>
+>>>>>>> refs/remotes/origin/master
