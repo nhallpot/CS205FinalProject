@@ -3,7 +3,7 @@
     class Piece {
         
         /* String, int, int, boolean, int, respectively */
-        public $color, $number, $position, $inSafety, $fnkSpaceID;
+        public $color, $number, $fnkSpaceNumber, $fnkSpaceColor;
         
         
         public function __construct() {
@@ -13,7 +13,7 @@
     class Space {
         
         /* int,boolean, boolean, boolean */
-        public $pmkSpaceID, $isStart, $isSafety, $isSlide;
+        public $pmkSpaceNumber,$pmkSpaceColor, $isStart, $isSafety, $isSlide;
         
         public function __construct() {
             
@@ -92,17 +92,7 @@
         public function __construct() {
         }
         
-        public function updateDatabase() {
-            /* access sql */
         }           
-    }
-
-    // The board is an array that stores all of the spaces 
-    class Board{
-        public function __construct() {
-            // Generate an array for all of the spaces
-            $this = array("B4-1","B4-0","B5","B6","B7","B8","B9","B10");
-        }
     }
 ?>
 
