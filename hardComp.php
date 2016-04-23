@@ -25,6 +25,17 @@ print '<h2>Sample Page</h2>';
 		</figure> -->
 	</article> 
 <script type="text/javascript" src="move.js"></script>
+
+<?php
+print("hi");
+$selectquery= 'SELECT * from "Piece"';
+print("hi");
+$pieceToMove = $thisDatabaseReader->select($selectquery,$data);
+print("hi");
+print($pieceToMove[0]);
+print("hi");
+?>
+
 <script type="text/javascript">
 //function for the computer's move
 
