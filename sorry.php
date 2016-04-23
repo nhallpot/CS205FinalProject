@@ -8,11 +8,12 @@
 //##############################################################################
 include "top.php";
 include "classes.php";
+
 $deck = new Deck(); // Instantiate a Deck that will be used throughout program.
 $deck->shuffle();
 // Begin output
 print '<article>';
-
+//initialize gameOver and computerTurn variables both boolean
 // Build the form for when the user wants to make moves
 // We will need an input for different combos for certain cards that can get split, as well as whether or not a sorry is avialable
 // And another input to choose which piece to move
@@ -42,10 +43,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	print('<input type="button" name="piece" value="3"/>');
 	print('<input type="button" name="piece" value="4"/>');
 
+	$card = 13;	
+	$color ='R';
 	// Check if card is sorry
 	if($card === 13)
 	{
+		print("hello");
+
 		// Display form for sorry situation
+		// Grab positions for every piece that isn't in Start or Safety
+		$query = "SELECT p.Color, p.Number from Piece p, Space s
+				  WHERE p.SpaceColor = s.SpaceColor AND p.SpaceNumber = s.SpaceNumber
+				  AND s.isStart = 0 AND s.isSafety = 0 
+				  AND p.Color !='".$color."'";
+				  
+		// So we now know all of the pieces that the user can move back to start and switch places with, so we have to ask them 
+
 	}
 
 	// Check if it is a 1
