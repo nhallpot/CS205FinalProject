@@ -24,6 +24,9 @@
             
             
             function move(pawn, spaces){
+              // var move = document.getElementById('movePawn').getAttribute('value');
+              //  pawn = move.substring(0,2);
+              // spaces = parseInt(move.charAt(3));
                imgObj = document.getElementById(pawn);
                imgObj.style.position= 'absolute'; 
                var arr;
@@ -49,6 +52,10 @@
                   imgObj.style.left = spacePos[arrayIndex][0] + 'px';
                   imgObj.style.top = spacePos[arrayIndex][1] + 'px';
               }
+              // If it'll pass home, skip over for loop
+              if (spacePos[(arrayIndex-1)].includes("3-") && !spacePos[(arrayIndex-1) + 2*spaces].includes("3-")) {
+                  i = spaces;
+              }
 
               // Cycle through loop moving pawn 1 space at a time
               for(i; i < spaces; i++) {
@@ -64,7 +71,7 @@
                       // If pawn is near home stretch
                       else if (spacePos[(arrayIndex - 1) + 2].includes('3-')) {
                         // Check for correct color
-                        if (pawn.charAt(0) != spacePos[arrayIndex-1].charAt(0)) {
+                        if (pawn.charAt(0).toUpperCase() != spacePos[arrayIndex-1].charAt(0).toUpperCase()) {
                           arrayIndex += 12;
                         }
                       } 
@@ -76,12 +83,25 @@
                       if (!endOfBoard) {
                         arrayIndex += 2;
                       }
-                      // console.log(i);
-                      // console.log(arrayIndex);
                       imgObj.style.left = spacePos[arrayIndex][0] + 'px';
                       imgObj.style.top = spacePos[arrayIndex][1] + 'px';
                       
                 }
+
+                if(spacePos[arrayIndex-1].includes('b2')||spacePos[arrayIndex-1].includes('y2')||spacePos[arrayIndex-1].includes('g2')||spacePos[arrayIndex-1].includes('r2')){
+                    if (pawn.charAt(0).toUpperCase() != spacePos[arrayIndex-1].charAt(0).toUpperCase()) {
+                        imgObj.style.left = spacePos[arrayIndex+18][0] + 'px';
+                        imgObj.style.top = spacePos[arrayIndex+18][1] + 'px';
+                    }
+                  }
+                if(spacePos[arrayIndex-1].includes('b10')||spacePos[arrayIndex-1].includes('y10')||spacePos[arrayIndex-1].includes('g10')||spacePos[arrayIndex-1].includes('r10')){
+                    if (pawn.charAt(0).toUpperCase() != spacePos[arrayIndex-1].charAt(0).toUpperCase()) {
+                      imgObj.style.left = spacePos[arrayIndex+8][0] + 'px';
+                      imgObj.style.top = spacePos[arrayIndex+8][1] + 'px';
+                    }
+                  }
             }
+
+
           
       </script>

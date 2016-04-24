@@ -115,35 +115,56 @@ p:nth-child(even){
 
 /*------------------------   pawn positioning  ------------------------------ */
 
-#redPawn1 {
+#R1 {
     position: absolute;
     left: 52px;
     top: 434px;
     height:45px;
 }
 
-#redPawn2 {
+#R2 {
     position: absolute;
     left: 52px;
     top: 434px;
     height:45px;
 }
 
-#redPawn3 {
+#R3 {
     position: absolute;
     left: 52px;
     top: 434px;
     height:45px;
 }
 
-#redPawn4 {
+#R4 {
     position: absolute;
     left: 52px;
     top: 434px;
     height:45px;
 }
 
-#yellowPawn1 {
+#Y1 {
+    position: absolute;
+    left: 559px;
+    top: 161px;
+    height:45px;
+}
+
+#Y2 {
+    position: absolute;
+    left: 559px;
+    top: 161px;
+    height:45px;
+}
+
+#Y3 {
+    position: absolute;
+    left: 559px;
+    top: 161px;
+    height:45px;
+}
+
+#Y4 {
     position: absolute;
     left: 559px;
     top: 161px;
