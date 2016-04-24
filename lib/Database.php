@@ -99,7 +99,7 @@
 class Database {
 
     public $db;
-    const DB_DEBUG = true;
+    const DB_DEBUG = false;
      
     public function __construct($dbUserName, $whichPass, $dbName) {
         $this->db = null;
