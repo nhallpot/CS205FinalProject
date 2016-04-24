@@ -23,9 +23,15 @@ print '<article>';
 // Whenever there is a post request, we are drawing a new card
 if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {	
+	print('<h2>Which piece(s) would you like to move ?</h2>');
 	print('<form action="sorry.php" method="post">
-			<input type="submit" name="Draw Card" value="Draw Card"/>
-	</form>');
+			<input type="submit" name="Draw Card" value="Draw Card"/>');
+	// Let user select their piece
+	print('<input type="radio" name="piece" value="1">1</input>');
+	print('<input type="radio" name="piece" value="2">2</input>');
+	print('<input type="radio" name="piece" value="3">3</input>');
+	print('<input type="radio" name="piece" value="4">4</input>');
+	print('</form>');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {	
@@ -33,30 +39,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// $deck->shuffle();
 	$cardNumber = $deck->draw();
 
-	print('<h2>Which piece(s) would you like to move and how would you like to move them?</h2>');
+	print('<h2>Which piece(s) would you like to move ?</h2>');
 
 	// Start the form
 	print('<form action="sorry.php" method="post">');
 
 	// Let user select their piece
-	print('<input type="button" name="piece" value="1"/>');
-	print('<input type="button" name="piece" value="2"/>');
-	print('<input type="button" name="piece" value="3"/>');
-	print('<input type="button" name="piece" value="4"/>');
+	print('<input type="radio" name="piece" value="1">1</input>');
+	print('<input type="radio" name="piece" value="2">2</input>');
+	print('<input type="radio" name="piece" value="3">3</input>');
+	print('<input type="radio" name="piece" value="4">4</input>');
 
-	$cardNumber = 5;	
-	$pieceColor ='R';
-	$pieceNumber = 1;
+		
+	$pieceColor ='R'; // The user is red
+	$pieceNumber = $_POST["piece"]; // The piece the user wants to move
+
+	if($debug)
+	{
+		print('<p> Piece Color: '.$pieceColor);
+		print('<p> Piece Number: '.$pieceNumber);
+		print('<p> Card Number'.$cardNumber);
+	}
 	// Check if card is sorry
 	if($cardNumber === 13)
 	{
 
-		// Display form for sorry situation
-		// Grab positions for every piece that isn't in Start or Safety
-		$query = "SELECT p.Color, p.Number from Piece p, Space s
-				  WHERE p.SpaceColor = s.SpaceColor AND p.SpaceNumber = s.SpaceNumber
-				  AND s.isStart = 0 AND s.isSafety = 0 
-				  AND p.Color !='".$color."'";
+		// // Display form for sorry situation
+		// // Grab positions for every piece that isn't in Start or Safety
+		// $query = "SELECT p.Color, p.Number from Piece p, Space s
+		// 		  WHERE p.SpaceColor = s.SpaceColor AND p.SpaceNumber = s.SpaceNumber
+		// 		  AND s.isStart = 0 AND s.isSafety = 0 
+		// 		  AND p.Color !='".$color."'";
 				  
 		// So we now know all of the pieces that the user can move back to start and switch places with, so we have to ask them 
 
