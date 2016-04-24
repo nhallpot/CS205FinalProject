@@ -16,35 +16,36 @@ print '<h2>Sample Page</h2>';
 
 <?php
 $cardNumber=1;
-$pieceColor='Y';
+$playerColor='R';
+$compColor='Y';
 $pieceNumber = 1;
 
 if($cardNumber == 1){
 
-	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
+	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' ";
 	$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
-	if($pieceToMove[0][1] == '5-1')
-		print 'bitch';
 
-	// if pawn1 is in start and there isn’t a compPawn on space outside of start
+	// if pawn1 is in start and there isn’t a compPawn on space right outside of start
+	if(($pieceToMove[0][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[3][1] != '5'));
+		print 'bitch';
 		// move pawn1
 		// if playerPawn is on same space as pawn1
 			// send playerPawn to start
 
-	// else if pawn2 is in start and there isn’t a compPawn on 
-	// space outside of start
+	// else if pawn2 is in start and there isn’t a compPawn on space outside of start
+	if(($pieceToMove[1][1] == '5-1')&&($pieceToMove[0][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[3][1] != '5'));
 		// move pawn2
 		// if playerPawn is on same space as pawn2
 			// send playerPawn to start
 
-	// else if pawn3 is in start and there isn’t a compPawn on 
-	// space outside of start
+	// else if pawn3 is in start and there isn’t a compPawn on space outside of start
+	if(($pieceToMove[2][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[0][1] != '5')&&($pieceToMove[3][1] != '5'));
 		// move pawn3
 		// if playerPawn is on same space as pawn3
 			// send playerPawn to start
 
-	// else if pawn4 is in start and there isn’t a compPawn on
-	// space outside of start
+	// else if pawn4 is in start and there isn’t a compPawn on space outside of start
+	if(($pieceToMove[3][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[0][1] != '5'));
 		// move pawn4
 		// if playerPawn is on same space as pawn4
 			// send playerPawn to start
