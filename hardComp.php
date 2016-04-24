@@ -17,13 +17,57 @@ print '<h2>Sample Page</h2>';
 <?php
 $cardNumber=1;
 $pieceColor='Y';
+$pieceNumber = 1;
 
 if($cardNumber == 1){
 
-	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".1."'";
+	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
+	$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+	if($pieceToMove[0][1] == '5-1')
+		print 'bitch';
 
-	//$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
-	print($pieceToMove);
+	// if pawn1 is in start and there isn’t a compPawn on space outside of start
+		// move pawn1
+		// if playerPawn is on same space as pawn1
+			// send playerPawn to start
+
+	// else if pawn2 is in start and there isn’t a compPawn on 
+	// space outside of start
+		// move pawn2
+		// if playerPawn is on same space as pawn2
+			// send playerPawn to start
+
+	// else if pawn3 is in start and there isn’t a compPawn on 
+	// space outside of start
+		// move pawn3
+		// if playerPawn is on same space as pawn3
+			// send playerPawn to start
+
+	// else if pawn4 is in start and there isn’t a compPawn on
+	// space outside of start
+		// move pawn4
+		// if playerPawn is on same space as pawn4
+			// send playerPawn to start
+	
+	// else if pawn1 is not in home and not in start and pawn1.pos+1 is not occupied by compPawn
+		// move pawn1
+		// if playerPawn is on same space as pawn1
+			// send playerPawn to start
+	
+	// else if pawn2 is not in home and not in start and pawn2.pos+1 is not occupied by compPawn
+		// move pawn2
+		// if playerPawn is on same space as pawn2
+			// send playerPawn to start
+	
+	// else if pawn3 is not in home and not in start and pawn3.pos+1 is not occupied by compPawn
+		// move pawn3
+		// if playerPawn is on same space as pawn3
+			// send playerPawn to start
+		
+	// else if pawn4 is not in home and not in start and pawn4.pos+1 is not occupied by compPawn
+		// move pawn4
+		// if playerPawn is on same space as pawn4
+			// send playerPawn to start
 	
 	
 }
