@@ -1,6 +1,7 @@
 <?php
 
-$debug = false; // Set to true for debugging
+$debug=true;
+
 //##############################################################################
 //
 // This is where all of the game logic will go.
@@ -23,33 +24,14 @@ print '<article>';
 // Whenever there is a post request, we are drawing a new card
 if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {	
-	print('<h2>Which piece(s) would you like to move ?</h2>');
-	print('<form action="sorry.php" method="post">
-			<input type="submit" name="Draw Card" value="Draw Card"/>');
-	// Let user select their piece
-	print('<input type="radio" name="piece" value="1">1</input>');
-	print('<input type="radio" name="piece" value="2">2</input>');
-	print('<input type="radio" name="piece" value="3">3</input>');
-	print('<input type="radio" name="piece" value="4">4</input>');
-	print('</form>');
+	include "form.php";
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {	
+	include "form.php";
 	// print($color);
 	// $deck->shuffle();
 	$cardNumber = $deck->draw();
-
-	print('<h2>Which piece(s) would you like to move ?</h2>');
-
-	// Start the form
-	print('<form action="sorry.php" method="post">');
-
-	// Let user select their piece
-	print('<input type="radio" name="piece" value="1">1</input>');
-	print('<input type="radio" name="piece" value="2">2</input>');
-	print('<input type="radio" name="piece" value="3">3</input>');
-	print('<input type="radio" name="piece" value="4">4</input>');
-
 		
 	$pieceColor ='R'; // The user is red
 	$pieceNumber = $_POST["piece"]; // The piece the user wants to move
@@ -129,59 +111,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// Move the space X number forward
 	else
 	{
-		$board = new Board(); // Create a board
-		echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.'"</div>'; // Inject div so they can grab from javascript
+		$movePiece($cardNumber,$pieceColor, $pieceNumber);
 
-
-		// Find the current position of the piece
-		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
-
-
-		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
-		
-		
-
-		$originalSpaceColor = $pieceToMove[0][0];
-
-		
-
-		$originalSpaceNumber = $pieceToMove[0][1];
-		$originalSpace = strtolower($originalSpaceColor.$originalSpaceNumber);
-
-		
-		$index = $board->getIndex($originalSpace);
-
-		// increment the index by the card drawn
-		$index += $cardNumber;
-
-		// Grab the space color and number that is at the index
-		$newSpace = $board->getSpace($index);
-		$newSpace = strtoupper($newSpace);
-
-		
-		// Update the piece in the database
-		$newSpaceColor = substr($newSpace, 0, 1); // Grab the color
-		$newSpaceNumber = substr($newSpace, 1,strlen($newSpace)); // Grab the number
-
-		$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newSpaceColor."', p.SpaceNumber='".$newSpaceNumber."' WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
-
-		
-		$updated = $thisDatabaseWriter->update($updateQuery,$data);
-	
-		// Debug
-		if($debug)
-		{
-			print('<p> Select Query: '.$selectQuery);
-			print_r('<p> Piece To move:'.$pieceToMove);
-			print('<p> Original space color'.$originalSpaceColor);
-			print_r('<p> Original Space:'.$originalSpace);
-			print_r('<p> Target Space: '.$newSpace);
-			print('<p>'.$updateQuery);
-			print_r('<p> DB updated? '.$updated); // Will print 1 if true, 0 if false
-		}
 	}
-	// Give the user a chance to select which pawn they would like to use (with CSS and Javascript???)
-
 
 	
 	// End the form
@@ -192,4 +124,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
 print '</article>';
 include "footer.php";
+
+/*
+	Function with inputs that wil move a piece based off of those inputs
+	Injects a div tag for js 
+	Grabs current value in db for piece, and then updates what space it is on.
+*/
+
+$movePiece = function($cardNumber,$pieceColor, $pieceNumber)
+{
+	
+
+	$board = new Board(); // Create a board
+	echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.'"</div>'; // Inject div so they can grab from javascript
+
+
+	// Find the current position of the piece
+	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
+
+	$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+
+	$originalSpaceColor = $pieceToMove[0][0];
+
+	$originalSpaceNumber = $pieceToMove[0][1];
+	$originalSpace = strtolower($originalSpaceColor.$originalSpaceNumber);
+
+	
+	$index = $board->getIndex($originalSpace);
+
+	// increment the index by the card drawn
+	$index += $cardNumber;
+
+	// Grab the space color and number that is at the index
+	$newSpace = $board->getSpace($index);
+	$newSpace = strtoupper($newSpace);
+	
+	// Update the piece in the database
+	$newSpaceColor = substr($newSpace, 0, 1); // Grab the color
+	$newSpaceNumber = substr($newSpace, 1,strlen($newSpace)); // Grab the number
+
+	$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newSpaceColor."', p.SpaceNumber='".$newSpaceNumber."' WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
+
+	
+	$updated = $thisDatabaseWriter->update($updateQuery,$data);
+	$debug = true; // Set to true for debugging
+	// Debug
+	if($debug)
+	{
+		print('<p> Select Query: '.$selectQuery);
+		print_r('<p> Piece To move:'.$pieceToMove);
+		print('<p> Original space color'.$originalSpaceColor);
+		print_r('<p> Original Space:'.$originalSpace);
+		print_r('<p> Target Space: '.$newSpace);
+		print('<p>'.$updateQuery);
+		print_r('<p> DB updated? '.$updated); // Will print 1 if true, 0 if false
+	}
+}; // end move piece function
+
 ?>
+
