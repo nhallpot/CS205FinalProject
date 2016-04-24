@@ -268,7 +268,7 @@ class Database {
     //
     public function select($query, $values = "") {
 
-        print($query);
+        
         $statement = $this->db->prepare($query);
         print($statement->error);
         print($db->error);

@@ -11,6 +11,8 @@ include "classes.php";
 
 $deck = new Deck(); // Instantiate a Deck that will be used throughout program.
 $deck->shuffle();
+
+print($index);
 // Begin output
 print '<article>';
 //initialize gameOver and computerTurn variables both boolean
@@ -20,15 +22,13 @@ print '<article>';
 // Whenever there is a post request, we are drawing a new card
 if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {	
-	$color = 'G'; // Every game will start with the user who is the color Green. The computer will always be Red.
 	print('<form action="sorry.php" method="post">
 			<input type="submit" name="Draw Card" value="Draw Card"/>
 	</form>');
-	print($color);
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {	
-	print($color);
+	// print($color);
 	// $deck->shuffle();
 	$cardNumber = $deck->draw();
 
@@ -115,18 +115,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// Move the space X number forward
 	else
 	{
+		$board = new Board(); // Create a board
 		echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.'"</div>'; // Inject div so they can grab from javascript
+
+
 		// Find the current position of the piece
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
 
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
-		print("hello");
 		
+		$originalSpaceColor = $pieceToMove[0][0];
+		$originalSpaceNumber = $pieceToMove[0][1];
+		$originalSpace = strtolower($originalSpaceColor.$originalSpaceNumber);
 
-		if($pieceToMove[0][1])
-		{
-			print("Fuck yeah");
-		}
+		$index = $board->getIndex($originalSpace);
+
+		// print($pieceToMove[0]);
 		// Add the card value to the space number
 		$newPieceSpaceNumber = $pieceToMove[1]+$cardNumber;
 
@@ -141,8 +145,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// End the form
 	print('<input type="submit" name="Draw Card" value="Draw Another Card"/>');
 	print("</form>");
-
-	$color = 'R';
 
 }
 
