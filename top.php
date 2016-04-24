@@ -30,6 +30,7 @@ include "lib/constants.php";
         print "<!-- require Database.php -->";
 
         require_once(LIB_PATH . '/Database.php');
+        require_once("insert.php"); // Only insert data in on the first run
 
         // %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
         //
