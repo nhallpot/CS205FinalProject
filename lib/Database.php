@@ -293,7 +293,6 @@ class Database {
     // success of query. 
     public function update($query, $values = "") {
         $success = false;
-
         $statement = $this->db->prepare($query);
 
         if (is_array($values)) {

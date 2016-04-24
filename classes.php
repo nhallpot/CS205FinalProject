@@ -110,12 +110,12 @@
 
         public function getIndex($space)
         {
-            return array_search($space,$this->spacesOnBoard);
+            return array_search($space,$this->spacesOnBoard); // Grab the index value for a given space
           
         }
         public function getSpace($index)
         {
-            return self::$spacesOnBoard;
+            return $this->spacesOnBoard[$index]; // Return the space for a given index in the array
         }
         
     }       

@@ -1,5 +1,6 @@
 <?php
 
+$debug = false; // Set to true for debugging
 //##############################################################################
 //
 // This is where all of the game logic will go.
@@ -15,6 +16,7 @@ $deck->shuffle();
 print($index);
 // Begin output
 print '<article>';
+//initialize gameOver and computerTurn variables both boolean
 // Build the form for when the user wants to make moves
 // We will need an input for different combos for certain cards that can get split, as well as whether or not a sorry is avialable
 // And another input to choose which piece to move
@@ -60,56 +62,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
 	}
 
-	// Check if it is a 1
-	// Show options to move out of start (if there is a piece in start) 
-	// or move forward 1
-	else if($cardNumber ===1)
-	{
+	// // Check if it is a 1
+	// // Show options to move out of start (if there is a piece in start) 
+	// // or move forward 1
+	// else if($cardNumber ===1)
+	// {
 
-	}
+	// }
 
-	// Check if it's a 2
-	// Allow a user to:
-	// Move from start or
-	// Move forward 2
-	// Draw another card
-	else if($cardNumber ===2)
-	{
+	// // Check if it's a 2
+	// // Allow a user to:
+	// // Move from start or
+	// // Move forward 2
+	// // Draw another card
+	// else if($cardNumber ===2)
+	// {
 
-	}
-	// Check if it's is a 4
-	// Move space backwards 4
-	else if($cardNumber ===4)
-	{
+	// }
+	// // Check if it's is a 4
+	// // Move space backwards 4
+	// else if($cardNumber ===4)
+	// {
 
-	}
+	// }
 
-	// Check if it's is a 7
-	// Ask the user how they would like to move with radio button (cant move space out of start)
-	// Possible Moves: 1 and 6, 4 and 3, just 7
-	else if($cardNumber ===7)
-	{
+	// // Check if it's is a 7
+	// // Ask the user how they would like to move with radio button (cant move space out of start)
+	// // Possible Moves: 1 and 6, 4 and 3, just 7
+	// else if($cardNumber ===7)
+	// {
 
-	}
+	// }
 
-	// Check if it's a 10
-	// Ask the user if they would like to move backwards 1 or forward 10
-	// If they can't' move forward 10, they MUST move backwards 1
-	else if($cardNumber ===10)
-	{
+	// // Check if it's a 10
+	// // Ask the user if they would like to move backwards 1 or forward 10
+	// // If they can't' move forward 10, they MUST move backwards 1
+	// else if($cardNumber ===10)
+	// {
 
-	}
+	// }
 
-	// Check if it's a 11
-	// Ask the user if they would like to: 
-	// Switch with another player (can not switch out of start)
-	// Move 11 spaces forward
-	// If they can't move 11 spaces, they must switch OR 
-	// Forfeit their turn
-	else if($cardNumber ===11)
-	{
+	// // Check if it's a 11
+	// // Ask the user if they would like to: 
+	// // Switch with another player (can not switch out of start)
+	// // Move 11 spaces forward
+	// // If they can't move 11 spaces, they must switch OR 
+	// // Forfeit their turn
+	// else if($cardNumber ===11)
+	// {
 
-	}
+	// }
 
 	// Move the space X number forward
 	else
@@ -121,21 +123,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 		// Find the current position of the piece
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
 
+
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
 		
+		
+
 		$originalSpaceColor = $pieceToMove[0][0];
+
+		
+
 		$originalSpaceNumber = $pieceToMove[0][1];
 		$originalSpace = strtolower($originalSpaceColor.$originalSpaceNumber);
 
+		
 		$index = $board->getIndex($originalSpace);
 
-		// print($pieceToMove[0]);
-		// Add the card value to the space number
-		$newPieceSpaceNumber = $pieceToMove[1]+$cardNumber;
+		// increment the index by the card drawn
+		$index += $cardNumber;
 
-		// Update the databse
+		// Grab the space color and number that is at the index
+		$newSpace = $board->getSpace($index);
+		$newSpace = strtoupper($newSpace);
 
-		// Call the move function with the piece color and number, and amount (javascript function)
+		
+		// Update the piece in the database
+		$newSpaceColor = substr($newSpace, 0, 1); // Grab the color
+		$newSpaceNumber = substr($newSpace, 1,strlen($newSpace)); // Grab the number
+
+		$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newSpaceColor."', p.SpaceNumber='".$newSpaceNumber."' WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
+
+		
+		$updated = $thisDatabaseWriter->update($updateQuery,$data);
+	
+		// Debug
+		if($debug)
+		{
+			print('<p> Select Query: '.$selectQuery);
+			print_r('<p> Piece To move:'.$pieceToMove);
+			print('<p> Original space color'.$originalSpaceColor);
+			print_r('<p> Original Space:'.$originalSpace);
+			print_r('<p> Target Space: '.$newSpace);
+			print('<p>'.$updateQuery);
+			print_r('<p> DB updated? '.$updated); // Will print 1 if true, 0 if false
+		}
 	}
 	// Give the user a chance to select which pawn they would like to use (with CSS and Javascript???)
 
