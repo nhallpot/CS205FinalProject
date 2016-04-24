@@ -30,42 +30,47 @@ if($cardNumber == 1){
 		print 'bitch';
 		// move pawn1
 		// if playerPawn is on same space as pawn1
+		if()
 			// send playerPawn to start
 
 	// else if pawn2 is in start and there isn’t a compPawn on space outside of start
-	if(($pieceToMove[1][1] == '5-1')&&($pieceToMove[0][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[3][1] != '5'));
+	else if(($pieceToMove[1][1] == '5-1')&&($pieceToMove[0][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[3][1] != '5'));
 		// move pawn2
 		// if playerPawn is on same space as pawn2
 			// send playerPawn to start
 
 	// else if pawn3 is in start and there isn’t a compPawn on space outside of start
-	if(($pieceToMove[2][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[0][1] != '5')&&($pieceToMove[3][1] != '5'));
+	else if(($pieceToMove[2][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[0][1] != '5')&&($pieceToMove[3][1] != '5'));
 		// move pawn3
 		// if playerPawn is on same space as pawn3
 			// send playerPawn to start
 
 	// else if pawn4 is in start and there isn’t a compPawn on space outside of start
-	if(($pieceToMove[3][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[0][1] != '5'));
+	else if(($pieceToMove[3][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[0][1] != '5'));
 		// move pawn4
 		// if playerPawn is on same space as pawn4
 			// send playerPawn to start
 	
 	// else if pawn1 is not in home and not in start and pawn1.pos+1 is not occupied by compPawn
+	else if(($pieceToMove[0][1] != '3-6')&&($pieceToMove[0][1] != '5-1')&&())
 		// move pawn1
 		// if playerPawn is on same space as pawn1
 			// send playerPawn to start
 	
 	// else if pawn2 is not in home and not in start and pawn2.pos+1 is not occupied by compPawn
+	else if(($pieceToMove[1][1] != '3-6')&&($pieceToMove[1][1] != '5-1')&&())
 		// move pawn2
 		// if playerPawn is on same space as pawn2
 			// send playerPawn to start
 	
 	// else if pawn3 is not in home and not in start and pawn3.pos+1 is not occupied by compPawn
+	else if(($pieceToMove[2][1] != '3-6')&&($pieceToMove[2][1] != '5-1')&&())
 		// move pawn3
 		// if playerPawn is on same space as pawn3
 			// send playerPawn to start
 		
 	// else if pawn4 is not in home and not in start and pawn4.pos+1 is not occupied by compPawn
+	else if(($pieceToMove[3][1] != '3-6')&&($pieceToMove[3][1] != '5-1')&&())
 		// move pawn4
 		// if playerPawn is on same space as pawn4
 			// send playerPawn to start
