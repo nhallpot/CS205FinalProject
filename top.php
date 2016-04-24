@@ -46,11 +46,10 @@ include "lib/constants.php";
 
         $dbUserName = 'nhallpot_writer';
         $whichPass = "w";
-        $thisDatabaseWriter = new Database($dbUserName, $whichPass, $dbName);
+        $thisDatabaseWriter = new Database($dbUserName, $whichPass, $dbName);	
 
-        ?>	
-
-
+        include 'board.php';
+        ?>
     </head>
 
     <!-- **********************     Body section      ********************** -->
