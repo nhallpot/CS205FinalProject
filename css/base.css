@@ -119,6 +119,7 @@ p:nth-child(even){
     left: 13px;
     top: 5px;
     height:45px;
+    color: red;
 }
 
 #redPawn2 {
@@ -128,6 +129,7 @@ p:nth-child(even){
     left: 13px;
     top: 5px;
     height:45px;
+    color: red;
 }
 
 #redPawn3 {
@@ -137,6 +139,7 @@ p:nth-child(even){
     left: 13px;
     top: 5px;
     height:45px;
+    color: red;
 }
 
 #redPawn4 {
@@ -146,6 +149,7 @@ p:nth-child(even){
     left: 13px;
     top: 5px;
     height:45px;
+    color: red;
 }
 
 #yellowPawn1 {
@@ -153,6 +157,31 @@ p:nth-child(even){
     left: 481px;
     top: 590px;
     height:45px;
+    color: yellow;
+}
+
+#yellowPawn2 {
+    position: absolute;
+    left: 481px;
+    top: 590px;
+    height:45px;
+    color: yellow;
+}
+
+#yellowPawn3 {
+    position: absolute;
+    left: 481px;
+    top: 590px;
+    height:45px;
+    color: yellow;
+}
+
+#yellowPawn4 {
+    position: absolute;
+    left: 481px;
+    top: 590px;
+    height:45px;
+    color: yellow;
 }
 
 .redHome {
