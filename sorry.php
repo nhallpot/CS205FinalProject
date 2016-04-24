@@ -15,7 +15,6 @@ $deck->shuffle();
 print($index);
 // Begin output
 print '<article>';
-//initialize gameOver and computerTurn variables both boolean
 // Build the form for when the user wants to make moves
 // We will need an input for different combos for certain cards that can get split, as well as whether or not a sorry is avialable
 // And another input to choose which piece to move
