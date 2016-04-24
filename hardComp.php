@@ -15,62 +15,205 @@ print '<h2>Sample Page</h2>';
 <script type="text/javascript" src="move.js"></script>
 
 <?php
+
 $cardNumber=1;
-$pieceColor='Y';
+// define player's color
+$playerColor='R';
+
+// define computer's color
+$compColor='Y';
+
 $pieceNumber = 1;
 
+// if computer draws a 1
 if($cardNumber == 1){
 
-	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
+	// query the computer's pieces and store them in an array
+	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";
 	$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
-	if($pieceToMove[0][1] == '5-1')
+
+	// query the player's pieces and store them in an array
+	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."' ";
+	$playerPieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+
+	// if pawn1 is in start and there isn’t a compPawn on space right outside of start
+	if(($pieceToMove[0][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[3][1] != '5'));
+
 		print 'bitch';
 
-	// if pawn1 is in start and there isn’t a compPawn on space outside of start
 		// move pawn1
-		// if playerPawn is on same space as pawn1
-			// send playerPawn to start
 
-	// else if pawn2 is in start and there isn’t a compPawn on 
-	// space outside of start
+		// query pawns again
+		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";
+		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+
+		// if playerPawn1 is on same space as pawn1
+		if($playerPieceToMove[0][1] == $pieceToMove[0][1])
+
+			// send playerPawn1 to start
+			print 'bitch';
+
+		// if playerPawn2 is on same space as pawn1
+		if($playerPieceToMove[1][1] == $pieceToMove[0][1])
+
+			// send playerPawn2 to start
+			print 'bitch';
+
+		// if playerPawn3 is on same space as pawn1
+		if($playerPieceToMove[2][1] == $pieceToMove[0][1])
+
+			// send playerPawn3 to start
+			print 'bitch';
+
+		// if playerPawn4 is on same space as pawn1
+		if($playerPieceToMove[3][1] == $pieceToMove[0][1])
+
+			// send playerPawn4 to start
+			print 'bitch';
+
+
+	//else if pawn2 is in start and there isn’t a compPawn on space outside of start
+	else if(($pieceToMove[1][1] == '5-1')&&($pieceToMove[0][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[3][1] != '5'));
+
+		print 'bitch';
+
 		// move pawn2
-		// if playerPawn is on same space as pawn2
-			// send playerPawn to start
 
-	// else if pawn3 is in start and there isn’t a compPawn on 
-	// space outside of start
-		// move pawn3
-		// if playerPawn is on same space as pawn3
-			// send playerPawn to start
+		// query pawns again
+		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";
+		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
 
-	// else if pawn4 is in start and there isn’t a compPawn on
-	// space outside of start
-		// move pawn4
-		// if playerPawn is on same space as pawn4
-			// send playerPawn to start
-	
-	// else if pawn1 is not in home and not in start and pawn1.pos+1 is not occupied by compPawn
-		// move pawn1
-		// if playerPawn is on same space as pawn1
-			// send playerPawn to start
-	
-	// else if pawn2 is not in home and not in start and pawn2.pos+1 is not occupied by compPawn
-		// move pawn2
-		// if playerPawn is on same space as pawn2
-			// send playerPawn to start
-	
-	// else if pawn3 is not in home and not in start and pawn3.pos+1 is not occupied by compPawn
-		// move pawn3
-		// if playerPawn is on same space as pawn3
-			// send playerPawn to start
+		// if playerPawn1 is on same space as pawn2
+		if($playerPieceToMove[0][1] == $pieceToMove[1][1])
+
+			// send playerPawn1 to start
+			print 'bitch';
+
+		// if playerPawn2 is on same space as pawn2
+		if($playerPieceToMove[1][1] == $pieceToMove[1][1])
+
+			// send playerPawn2 to start
+			print 'bitch';
+
+		// if playerPawn3 is on same space as pawn2
+		if($playerPieceToMove[2][1] == $pieceToMove[1][1])
+
+			// send playerPawn3 to start
+			print 'bitch';
+
+		// if playerPawn4 is on same space as pawn2
+		if($playerPieceToMove[3][1] == $pieceToMove[1][1])
+
+			// send playerPawn4 to start
+			print 'bitch';
+
+	// else if pawn3 is in start and there isn’t a compPawn on space outside of start
+	else if(($pieceToMove[2][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[0][1] != '5')&&($pieceToMove[3][1] != '5'));
 		
-	// else if pawn4 is not in home and not in start and pawn4.pos+1 is not occupied by compPawn
+		print 'bitch';
+
+		// move pawn3
+
+		// query pawns again
+		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";
+		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+
+		// if playerPawn1 is on same space as pawn3
+		if($playerPieceToMove[0][1] == $pieceToMove[2][1])
+
+			// send playerPawn1 to start
+			print 'bitch';
+
+		// if playerPawn2 is on same space as pawn3
+		if($playerPieceToMove[1][1] == $pieceToMove[2][1])
+
+			// send playerPawn2 to start
+			print 'bitch';
+
+		// if playerPawn3 is on same space as pawn3
+		if($playerPieceToMove[2][1] == $pieceToMove[2][1])
+
+			// send playerPawn3 to start
+			print 'bitch';
+
+		// if playerPawn4 is on same space as pawn3
+		if($playerPieceToMove[3][1] == $pieceToMove[2][1])
+
+			// send playerPawn4 to start
+			print 'bitch';
+
+	// else if pawn4 is in start and there isn’t a compPawn on space outside of start
+	else if(($pieceToMove[3][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[0][1] != '5'));
+		
+		print 'bitch';
+
 		// move pawn4
-		// if playerPawn is on same space as pawn4
-			// send playerPawn to start
+
+		// query pawns again
+		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";
+		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+
+		// if playerPawn1 is on same space as pawn4
+		if($playerPieceToMove[0][1] == $pieceToMove[3][1])
+
+			// send playerPawn1 to start
+			print 'bitch';
+
+		// if playerPawn2 is on same space as pawn4
+		if($playerPieceToMove[1][1] == $pieceToMove[3][1])
+
+			// send playerPawn2 to start
+			print 'bitch';
+
+		// if playerPawn3 is on same space as pawn4
+		if($playerPieceToMove[2][1] == $pieceToMove[3][1])
+
+			// send playerPawn3 to start
+			print 'bitch';
+
+		// if playerPawn4 is on same space as pawn4
+		if($playerPieceToMove[3][1] == $pieceToMove[3][1])
+
+			// send playerPawn4 to start
+			print 'bitch';
+	
+	// // else if pawn1 is not in home and not in start and pawn1.pos+1 is not occupied by compPawn
+	// else if(($pieceToMove[0][1] != '3-6')&&($pieceToMove[0][1] != '5-1')&&())
+	// 	// move pawn1
+	// 	// if playerPawn is on same space as pawn1
+	// 		// send playerPawn to start
+	
+	// // else if pawn2 is not in home and not in start and pawn2.pos+1 is not occupied by compPawn
+	// else if(($pieceToMove[1][1] != '3-6')&&($pieceToMove[1][1] != '5-1')&&())
+	// 	// move pawn2
+	// 	// if playerPawn is on same space as pawn2
+	// 		// send playerPawn to start
+	
+	// // else if pawn3 is not in home and not in start and pawn3.pos+1 is not occupied by compPawn
+	// else if(($pieceToMove[2][1] != '3-6')&&($pieceToMove[2][1] != '5-1')&&())
+	// 	// move pawn3
+	// 	// if playerPawn is on same space as pawn3
+	// 		// send playerPawn to start
+		
+	// // else if pawn4 is not in home and not in start and pawn4.pos+1 is not occupied by compPawn
+	// else if(($pieceToMove[3][1] != '3-6')&&($pieceToMove[3][1] != '5-1')&&())
+	// 	// move pawn4
+	// 	// if playerPawn is on same space as pawn4
+	// 		// send playerPawn to start
+	// else
+	// 	print'poop';
 	
 	
 }
+
+
+
+
+
+
+
+
+
 
 // $selectquery = "SELECT * from Piece";
 // $pieceToMove = $thisDatabaseReader->select($selectquery,$data);
