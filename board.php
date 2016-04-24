@@ -40,11 +40,19 @@
 
               // Cycle through loop moving pawn 1 space at a time
               for(var i = 0; i < spaces; i++) {
-                       console.log("start");
-                       var endOfBoard = false;
 
+
+                      console.log("start");
+                      var endOfBoard = false;
+
+                      // if pawn is at end of board 
+                      if (arrayIndex === spacePos.length - 1) {
+                        endOfBoard = true;
+                        arrayIndex = 1;
+                        console.log("end");
+                      } 
                       // If pawn is near home stretch
-                      if (spacePos[(arrayIndex - 1) + 2].includes('3-')) {
+                      else if (spacePos[(arrayIndex - 1) + 2].includes('3-')) {
                         // Check for correct color
                         if (pawn.charAt(0) != spacePos[arrayIndex-1].charAt(0)) {
                           arrayIndex += 12;
@@ -54,16 +62,12 @@
                       else if (spacePos[(arrayIndex - 1) + 2].includes('5-') && !spacePos[(arrayIndex - 1) + 2].includes('3-5')){
                         arrayIndex += 2;
                       }
-                      // if pawn is near end of board array
-                      else if (arrayIndex === spacePos.length - 1) {
-                        endOfBoard = true;
-                        arrayIndex = 1;
-                        console.log("end");
-                      } 
                       // increase index by 2 and style
                       if (!endOfBoard) {
                         arrayIndex += 2;
                       }
+                      console.log(i);
+                      console.log(arrayIndex);
                       imgObj.style.left = spacePos[arrayIndex][0] + 'px';
                       imgObj.style.top = spacePos[arrayIndex][1] + 'px';
                       
