@@ -67,7 +67,7 @@
 
 	$records2 = $thisDatabaseWriter->insert($query2);
 	
-	print $query2;
+	///print $query2;
 
 	// $query3 = 'SELECT * FROM Space';
 	// $records3 = $thisDatabaseReader->select($query3,$data,0,0,0,0,false,false);
