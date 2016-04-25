@@ -1,6 +1,6 @@
 <?php
 
-$debug=true;
+$debug=false;
 
 //##############################################################################
 //
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// Check if card is sorry
 	if($cardNumber === 13)
 	{
-
+		$movePiece($cardNumber,$pieceColor, $pieceNumber);
 		// // Display form for sorry situation
 		// // Grab positions for every piece that isn't in Start or Safety
 		// $query = "SELECT p.Color, p.Number from Piece p, Space s
@@ -167,7 +167,7 @@ $movePiece = function($cardNumber,$pieceColor, $pieceNumber)
 
 	
 	$updated = $thisDatabaseWriter->update($updateQuery,$data);
-	$debug = true; // Set to true for debugging
+	$debug = false; // Set to true for debugging
 	// Debug
 	if($debug)
 	{
