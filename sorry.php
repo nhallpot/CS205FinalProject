@@ -1,6 +1,6 @@
 <?php
 
-$debug = true; // Set to true for debugging
+$debug = false; // Set to true for debugging
 //##############################################################################
 //
 // This is where all of the game logic will go.
@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// print($color);
 	// $deck->shuffle();
 	$cardNumber = $deck->draw();
-	$cardNumber = 4;
 	print('<h2>Which piece(s) would you like to move ?</h2>');
 
 	// Start the form
@@ -127,9 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// }
 
 	// Move the piece
-	print("<h1> HERE IS THE NEW CARD NUMBER".$cardNumber);
 	$board = new Board(); // Create a board
-	echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.'"</div>'; // Inject div so they can grab from javascript
 
 
 	// Find the current position of the piece
@@ -164,6 +161,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	
 	$updated = $thisDatabaseWriter->update($updateQuery,$data);
 
+
+	// Grab the new space from the db after update
+	$newPieceSpaceNumberColor = $thisDatabaseReader->select($selectQuery,$data);
+	
+
+	$newSpaceColor = $newPieceSpaceNumberColor[0][0];
+	$newSpaceNumber = $newPieceSpaceNumberColor[0][1];
+
+	echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.','.$newSpaceColor.$newSpaceNumber.'"</div>'; // Inject div so they can grab from javascript
+
 	// Debug
 	if($debug)
 	{
@@ -174,6 +181,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 		print_r('<p> Target Space: '.$newSpace);
 		print('<p>'.$updateQuery);
 		print_r('<p> DB updated? '.$updated); // Will print 1 if true, 0 if false
+		print_r("<h1> NEW PIECE SPACE NUMBER AND COLOR: ".$newPieceSpaceNumberColor[0][0]);
+		print("<h1> New Space Color: ".$newSpaceColor);
+		print("<h1> HERE IS THE Updated after if statements CARD NUMBER".$cardNumber);
+
+
 	}
 	
 	// Give the user a chance to select which pawn they would like to use (with CSS and Javascript???)
