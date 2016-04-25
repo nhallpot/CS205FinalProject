@@ -1,6 +1,6 @@
 <!-- %%%%%%%%%%%%%%%%%%%%%%     Page header   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <header>
-	<h1> Info </h1>
+	<h1> Sorry! </h1>
 <!-- 	<?php
 		include "info.php";
 	?> -->
