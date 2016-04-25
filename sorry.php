@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {	
 	print('<h2>Which piece(s) would you like to move ?</h2>');
 	print('<form action="sorry.php" method="post">
-			<input type="submit" name="Draw Card" value="Draw Card"/>');
+			<input type="submit" name="Draw Card" value="Draw Card" onclick= "move("R1","1")"/>');
 	// Let user select their piece
 	print('<input type="radio" name="piece" value="1">1</input>');
 	print('<input type="radio" name="piece" value="2">2</input>');
