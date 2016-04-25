@@ -24,9 +24,9 @@
             
             
             function move(pawn, spaces){
-              // var move = document.getElementById('movePawn').getAttribute('value');
-              //  pawn = move.substring(0,2);
-              // spaces = parseInt(move.charAt(3));
+               var move = document.getElementById('movePawn').getAttribute('value');
+               pawn = move.substring(0,2);
+               spaces = parseInt(move.charAt(3));
                imgObj = document.getElementById(pawn);
                imgObj.style.position= 'absolute'; 
                var arr;

@@ -31,7 +31,7 @@ figcaption {
     text-align: center;
 }
 
-#index article {
+#board {
     background-image: url("../images/board2.png");
     background-repeat: no-repeat;
     background-size: 650px auto;
