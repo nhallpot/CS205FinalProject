@@ -32,8 +32,19 @@
                imgObj.style.position= 'absolute'; 
                var arr;
                index = 1;
-                // Find position that piece is currently at
-                for (x = 0; x < spacePos.length; x++) {
+
+              // If new space matches array, then set item to that space
+              for (var x = 0; x < spacePos.length; x+2) {
+                if (spacePos[x] === newSpace) {
+                  imgObj.style.left = spacePos[x+1][0] + 'px';
+                  imgObj.style.left = spacePos[x+1][1] + 'px';
+                }
+              }
+
+
+             /* 
+              // Find position that piece is currently at
+                for (var x = 0; x < spacePos.length; x++) {
                   arr = spacePos[x];
                   if (Array.isArray(arr)) {
                     if (arr[0] === parseInt(getCssProperty(pawn,'left')) && (arr[1] === parseInt(getCssProperty(pawn,'top')))) {
@@ -101,5 +112,5 @@
                       imgObj.style.top = spacePos[arrayIndex+8][1] + 'px';
                     }
                   }
-            }
+            }*/
       </script>
