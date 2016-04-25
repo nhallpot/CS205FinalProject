@@ -30,70 +30,79 @@ if($cardNumber == 1){
 
 	// query the computer's pieces and store them in an array
 	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";
-	$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+	
+	$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
 
 	// query the player's pieces and store them in an array
 	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."' ";
-	$playerPieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+	$playerPieceToMove = $thisDatabaseReader->select($selectQuery,"");
+	print($pieceToMove[0][0]);
+
 
 	// if pawn1 is in start and there isn’t a compPawn on space right outside of start
-	if(($pieceToMove[0][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[3][1] != '5'));
+	if(($pieceToMove[0]['SpaceNumber'] == '5-1')&&(!(($pieceToMove[1]['SpaceNumber'] == '5')&&($pieceToMove[1][0] == 'Y')))&&(!(($pieceToMove[2]['SpaceNumber'] == '5')&&($pieceToMove[2][0] == 'Y')))&&(!(($pieceToMove[3]['SpaceNumber'] == '5')&&($pieceToMove[3][0] == 'Y')))){
 
-		print 'bitch';
+		print 'hi';
+		$val=1;
 
 		// move pawn1
+		$movePiece($cardNumber, $compColor, $val);
 
 		// query pawns again
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";
-		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
 
 		// if playerPawn1 is on same space as pawn1
-		if($playerPieceToMove[0][1] == $pieceToMove[0][1])
+		if($playerPieceToMove[0][1] == $pieceToMove[0][1]){
 
 			// send playerPawn1 to start
-			print 'bitch';
+			print 'ass1';
+		}
 
 		// if playerPawn2 is on same space as pawn1
-		if($playerPieceToMove[1][1] == $pieceToMove[0][1])
+		if($playerPieceToMove[1][1] == $pieceToMove[0][1]){
 
 			// send playerPawn2 to start
-			print 'bitch';
+			print 'nigga';
+		}
 
 		// if playerPawn3 is on same space as pawn1
-		if($playerPieceToMove[2][1] == $pieceToMove[0][1])
+		if($playerPieceToMove[2][1] == $pieceToMove[0][1]){
 
 			// send playerPawn3 to start
 			print 'bitch';
+		}
 
 		// if playerPawn4 is on same space as pawn1
-		if($playerPieceToMove[3][1] == $pieceToMove[0][1])
+		if($playerPieceToMove[3][1] == $pieceToMove[0][1]){
 
 			// send playerPawn4 to start
-			print 'bitch';
-
+			print 'ass2';
+		}
+}
 
 	//else if pawn2 is in start and there isn’t a compPawn on space outside of start
-	else if(($pieceToMove[1][1] == '5-1')&&($pieceToMove[0][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[3][1] != '5'));
+	else if(($pieceToMove[1][1] == '5-1')&&($pieceToMove[0][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[3][1] != '5')){
 
-		print 'bitch';
+		print 'second one';
 
 		// move pawn2
 
 		// query pawns again
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";
-		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
 
 		// if playerPawn1 is on same space as pawn2
 		if($playerPieceToMove[0][1] == $pieceToMove[1][1])
 
 			// send playerPawn1 to start
-			print 'bitch';
+			print 'ass';
 
 		// if playerPawn2 is on same space as pawn2
 		if($playerPieceToMove[1][1] == $pieceToMove[1][1])
 
 			// send playerPawn2 to start
-			print 'bitch';
+			print 'ass';
 
 		// if playerPawn3 is on same space as pawn2
 		if($playerPieceToMove[2][1] == $pieceToMove[1][1])
@@ -106,23 +115,23 @@ if($cardNumber == 1){
 
 			// send playerPawn4 to start
 			print 'bitch';
-
+	}
 	// else if pawn3 is in start and there isn’t a compPawn on space outside of start
-	else if(($pieceToMove[2][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[0][1] != '5')&&($pieceToMove[3][1] != '5'));
+	else if(($pieceToMove[2][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[0][1] != '5')&&($pieceToMove[3][1] != '5')){
 		
-		print 'bitch';
+		print 'third one';
 
 		// move pawn3
 
 		// query pawns again
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";
-		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
 
 		// if playerPawn1 is on same space as pawn3
 		if($playerPieceToMove[0][1] == $pieceToMove[2][1])
 
 			// send playerPawn1 to start
-			print 'bitch';
+			print 'ass';
 
 		// if playerPawn2 is on same space as pawn3
 		if($playerPieceToMove[1][1] == $pieceToMove[2][1])
@@ -141,23 +150,23 @@ if($cardNumber == 1){
 
 			// send playerPawn4 to start
 			print 'bitch';
-
+     }
 	// else if pawn4 is in start and there isn’t a compPawn on space outside of start
-	else if(($pieceToMove[3][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[0][1] != '5'));
+	else if(($pieceToMove[3][1] == '5-1')&&($pieceToMove[1][1] != '5')&&($pieceToMove[2][1] != '5')&&($pieceToMove[0][1] != '5')){
 		
-		print 'bitch';
+		print 'fourth one';
 
 		// move pawn4
 
 		// query pawns again
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";
-		$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
 
 		// if playerPawn1 is on same space as pawn4
 		if($playerPieceToMove[0][1] == $pieceToMove[3][1])
 
 			// send playerPawn1 to start
-			print 'bitch';
+			print 'ass';
 
 		// if playerPawn2 is on same space as pawn4
 		if($playerPieceToMove[1][1] == $pieceToMove[3][1])
@@ -176,7 +185,7 @@ if($cardNumber == 1){
 
 			// send playerPawn4 to start
 			print 'bitch';
-	
+	}
 	// // else if pawn1 is not in home and not in start and pawn1.pos+1 is not occupied by compPawn
 	// else if(($pieceToMove[0][1] != '3-6')&&($pieceToMove[0][1] != '5-1')&&())
 	// 	// move pawn1
@@ -216,7 +225,7 @@ if($cardNumber == 1){
 
 
 // $selectquery = "SELECT * from Piece";
-// $pieceToMove = $thisDatabaseReader->select($selectquery,$data);
+// $pieceToMove = $thisDatabaseReader->select($selectquery,"");
 // //print("hi");
 // if($pieceToMove)
 // 		{
@@ -386,6 +395,55 @@ if($cardNumber == 1){
 // 			}
 // 			*/
 
+$movePiece = function($cardNumber,$pieceColor, $pieceNumber)
+{
+	
+
+	$board = new Board(); // Create a board
+	echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.'"</div>'; // Inject div so they can grab from javascript
+
+
+	// Find the current position of the piece
+	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
+
+	$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+
+	$originalSpaceColor = $pieceToMove[0][0];
+
+	$originalSpaceNumber = $pieceToMove[0][1];
+	$originalSpace = strtolower($originalSpaceColor.$originalSpaceNumber);
+
+	
+	$index = $board->getIndex($originalSpace);
+
+	// increment the index by the card drawn
+	$index += $cardNumber;
+
+	// Grab the space color and number that is at the index
+	$newSpace = $board->getSpace($index);
+	$newSpace = strtoupper($newSpace);
+	
+	// Update the piece in the database
+	$newSpaceColor = substr($newSpace, 0, 1); // Grab the color
+	$newSpaceNumber = substr($newSpace, 1,strlen($newSpace)); // Grab the number
+
+	$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newSpaceColor."', p.SpaceNumber='".$newSpaceNumber."' WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
+
+	
+	$updated = $thisDatabaseWriter->update($updateQuery,$data);
+	$debug = false; // Set to true for debugging
+	// Debug
+	if($debug)
+	{
+		print('<p> Select Query: '.$selectQuery);
+		print_r('<p> Piece To move:'.$pieceToMove);
+		print('<p> Original space color'.$originalSpaceColor);
+		print_r('<p> Original Space:'.$originalSpace);
+		print_r('<p> Target Space: '.$newSpace);
+		print('<p>'.$updateQuery);
+		print_r('<p> DB updated? '.$updated); // Will print 1 if true, 0 if false
+	}
+}; // end move piece function
 
 print '</article>';
 include "footer.php";
