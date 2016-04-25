@@ -1,7 +1,6 @@
 <?php
 
-$debug=false;
-
+$debug = true; // Set to true for debugging
 //##############################################################################
 //
 // This is where all of the game logic will go.
@@ -24,14 +23,33 @@ print '<article>';
 // Whenever there is a post request, we are drawing a new card
 if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {	
-	include "form.php";
+	print('<h2>Which piece(s) would you like to move ?</h2>');
+	print('<form action="sorry.php" method="post">
+			<input type="submit" name="Draw Card" value="Draw Card"/>');
+	// Let user select their piece
+	print('<input type="radio" name="piece" value="1">1</input>');
+	print('<input type="radio" name="piece" value="2">2</input>');
+	print('<input type="radio" name="piece" value="3">3</input>');
+	print('<input type="radio" name="piece" value="4">4</input>');
+	print('</form>');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {	
-	include "form.php";
 	// print($color);
 	// $deck->shuffle();
 	$cardNumber = $deck->draw();
+	$cardNumber = 4;
+	print('<h2>Which piece(s) would you like to move ?</h2>');
+
+	// Start the form
+	print('<form action="sorry.php" method="post">');
+
+	// Let user select their piece
+	print('<input type="radio" name="piece" value="1">1</input>');
+	print('<input type="radio" name="piece" value="2">2</input>');
+	print('<input type="radio" name="piece" value="3">3</input>');
+	print('<input type="radio" name="piece" value="4">4</input>');
+
 		
 	$pieceColor ='R'; // The user is red
 	$pieceNumber = $_POST["piece"]; // The piece the user wants to move
@@ -45,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// Check if card is sorry
 	if($cardNumber === 13)
 	{
-		$movePiece($cardNumber,$pieceColor, $pieceNumber);
+
 		// // Display form for sorry situation
 		// // Grab positions for every piece that isn't in Start or Safety
 		// $query = "SELECT p.Color, p.Number from Piece p, Space s
@@ -74,12 +92,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// {
 
 	// }
-	// // Check if it's is a 4
-	// // Move space backwards 4
-	// else if($cardNumber ===4)
-	// {
-
-	// }
+	// Check if it's is a 4
+	// Move space backwards 4
+	else if($cardNumber ===4)
+	{
+		$cardNumber = -4;
+	}
 
 	// // Check if it's is a 7
 	// // Ask the user how they would like to move with radio button (cant move space out of start)
@@ -108,33 +126,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
 	// }
 
-	// Move the space X number forward
-	else
-	{
-		$movePiece($cardNumber,$pieceColor, $pieceNumber);
-
-	}
-
-	
-	// End the form
-	print('<input type="submit" name="Draw Card" value="Draw Another Card"/>');
-	print("</form>");
-
-}
-
-print '</article>';
-include "footer.php";
-
-/*
-	Function with inputs that wil move a piece based off of those inputs
-	Injects a div tag for js 
-	Grabs current value in db for piece, and then updates what space it is on.
-*/
-
-$movePiece = function($cardNumber,$pieceColor, $pieceNumber)
-{
-	
-
+	// Move the piece
+	print("<h1> HERE IS THE NEW CARD NUMBER".$cardNumber);
 	$board = new Board(); // Create a board
 	echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.'"</div>'; // Inject div so they can grab from javascript
 
@@ -142,10 +135,12 @@ $movePiece = function($cardNumber,$pieceColor, $pieceNumber)
 	// Find the current position of the piece
 	$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$pieceColor."' AND p.Number = '".$pieceNumber."'";
 
-	$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
 
+	$pieceToMove = $thisDatabaseReader->select($selectQuery,$data);
+	
 	$originalSpaceColor = $pieceToMove[0][0];
 
+	
 	$originalSpaceNumber = $pieceToMove[0][1];
 	$originalSpace = strtolower($originalSpaceColor.$originalSpaceNumber);
 
@@ -158,6 +153,7 @@ $movePiece = function($cardNumber,$pieceColor, $pieceNumber)
 	// Grab the space color and number that is at the index
 	$newSpace = $board->getSpace($index);
 	$newSpace = strtoupper($newSpace);
+
 	
 	// Update the piece in the database
 	$newSpaceColor = substr($newSpace, 0, 1); // Grab the color
@@ -167,7 +163,7 @@ $movePiece = function($cardNumber,$pieceColor, $pieceNumber)
 
 	
 	$updated = $thisDatabaseWriter->update($updateQuery,$data);
-	$debug = false; // Set to true for debugging
+
 	// Debug
 	if($debug)
 	{
@@ -179,7 +175,17 @@ $movePiece = function($cardNumber,$pieceColor, $pieceNumber)
 		print('<p>'.$updateQuery);
 		print_r('<p> DB updated? '.$updated); // Will print 1 if true, 0 if false
 	}
-}; // end move piece function
+	
+	// Give the user a chance to select which pawn they would like to use (with CSS and Javascript???)
 
+
+	
+	// End the form
+	print('<input type="submit" name="Draw Card" value="Draw Another Card"/>');
+	print("</form>");
+
+}
+
+print '</article>';
+include "footer.php";
 ?>
-
