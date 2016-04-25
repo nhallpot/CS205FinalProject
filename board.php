@@ -1,6 +1,7 @@
 
 
     <script type="text/javascript">
+
             var imgObj = null;
             
             var spacePos = ['b1', [13,5],'b2',[52,5],'b3',[91,5],'b3-1',[91, 44], 'b3-2', [91,83], 'b3-3', [91,122], 'b3-4', [91, 161], 'b3-5', [91, 200], 
@@ -21,28 +22,29 @@
                return window.getComputedStyle(elem,null).getPropertyValue(property);
             }
 
-            
-            
-            function move(pawn, spaces){
-              var move = document.getElementById('movePawn').getAttribute('value');
-              pawn = move.substring(0,2);
-              spaces = parseInt(move.charAt(3));
-              newSpace = move.substring(5, move.length);
+            function move(){
+              var info = document.getElementById('movePawn').getAttribute('value').split(",");
+              var pawn = info[0];
+              var spaces = info[1];
+              var newSpace = info[2].toLowerCase();
+                
+              // Set card 
+              var card = "images/" + spaces + ".jpg";
+              console.log(card);
+              document.getElementById("card").style.src = card;
+
                imgObj = document.getElementById(pawn);
                imgObj.style.position= 'absolute'; 
-               var arr;
-               index = 1;
 
-              // If new space matches array, then set item to that space
-              for (var x = 0; x < spacePos.length; x+2) {
-                if (spacePos[x] === newSpace) {
-                  imgObj.style.left = spacePos[x+1][0] + 'px';
-                  imgObj.style.left = spacePos[x+1][1] + 'px';
+              /*// If new space matches array, then set item to that space
+              for (var y = 0; y < spacePos.length; y++) {
+                if (spacePos[y] == newSpace) {
+                  imgObj.style.left = spacePos[y+1][0] + 'px';
+                  imgObj.style.top = spacePos[y+1][1] + 'px';
                 }
-              }
+              }*/
 
 
-             /* 
               // Find position that piece is currently at
                 for (var x = 0; x < spacePos.length; x++) {
                   arr = spacePos[x];
@@ -52,29 +54,29 @@
                     }
                   }
               }
-
-
               var i = 0;
-
+              console.log(arrayIndex);
               // If it is at start, skip through for loop to move and place
-              // at first index after start
+              // at first index after start if it is a 1, 2, or 13 otherwise stay
               if (spacePos[arrayIndex-1].includes("5-1")) {
+                console.log(spaces);
+                if (spaces == 1 || spaces == 2 || spaces == 13) {
+                  console.log("check");
                   arrayIndex -= 2;
                   i = spaces;  
                   imgObj.style.left = spacePos[arrayIndex][0] + 'px';
                   imgObj.style.top = spacePos[arrayIndex][1] + 'px';
+                } else {
+                  i = spaces;
+                }
               }
               // If it'll pass home, skip over for loop
               if (spacePos[(arrayIndex-1)].includes("3-") && !spacePos[(arrayIndex-1) + 2*spaces].includes("3-")) {
                   i = spaces;
               }
-
               // Cycle through loop moving pawn 1 space at a time
-              for(i; i < spaces; i++) {
-
-
+              for (i; i < spaces; i++) {
                       var endOfBoard = false;
-
                       // if pawn is at end of board 
                       if (arrayIndex === spacePos.length - 1) {
                         endOfBoard = true;
@@ -99,7 +101,6 @@
                       imgObj.style.top = spacePos[arrayIndex][1] + 'px';
                       
                 }
-
                 if(spacePos[arrayIndex-1].includes('b2')||spacePos[arrayIndex-1].includes('y2')||spacePos[arrayIndex-1].includes('g2')||spacePos[arrayIndex-1].includes('r2')){
                     if (pawn.charAt(0).toUpperCase() != spacePos[arrayIndex-1].charAt(0).toUpperCase()) {
                         imgObj.style.left = spacePos[arrayIndex+18][0] + 'px';
@@ -112,5 +113,34 @@
                       imgObj.style.top = spacePos[arrayIndex+8][1] + 'px';
                     }
                   }
-            }*/
+
+              // Save position
+              savePosition();
+            }
+
+            function savePosition() {
+              var pawns = [];
+              var x = 0;
+              var y = 0;
+              // Get position that items are currently at
+              while (x < 4 && y < 4) {
+                var pawn = 'R' + (x+1).toString();
+                var left = getCssProperty(pawn, 'left').replace("px","");
+                var top = getCssProperty(pawn, 'top').replace("px","")
+                pawns.push([left, top]);
+                pawn = 'Y' + (y+1).toString();
+                left = getCssProperty(pawn, 'left').replace("px","");
+                top = getCssProperty(pawn, 'top').replace("px","")
+                pawns.push([left, top]);
+                x++;
+                y++;
+              }
+              // Store them in session
+              sessionStorage.setItem("pawns", JSON.stringify(pawns));
+            }
+
+            function clear() {
+              sessionStorage.clear();
+            }
+
       </script>
