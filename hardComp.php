@@ -90,6 +90,9 @@ if($cardNumber == 1){
 		// move pawn1
 
 		$pieceNumber=1;
+
+
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -230,6 +233,8 @@ if($cardNumber == 1){
 
 		// move pawn2
 		$pieceNumber=2;
+
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -375,6 +380,8 @@ if($cardNumber == 1){
 
 		// move pawn3
 		$pieceNumber=3;
+
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -519,6 +526,8 @@ if($cardNumber == 1){
 
 		// move pawn4
 		$pieceNumber=4;
+
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -666,6 +675,8 @@ if($cardNumber == 1){
 		// store pawn number in variable
 		$pieceNumber=1;
 
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+
 		// increment the index by the card drawn
 		$index1 += $cardNumber;
 
@@ -804,6 +815,8 @@ if($cardNumber == 1){
 
 		// declare piece number
 		$pieceNumber=2;
+
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 
 		// increment the index by the card drawn
 		$index2 += $cardNumber;
@@ -949,6 +962,8 @@ if($cardNumber == 1){
 		// declare piece number
 		$pieceNumber=3;
 
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+
 		// increment the index by the card drawn
 		$index3 += $cardNumber;
 
@@ -1091,6 +1106,8 @@ if($cardNumber == 1){
 
 		// declare piece number
 		$pieceNumber=4;
+
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 
 		// increment the index by the card drawn
 		$index4 += $cardNumber;
@@ -1297,6 +1314,8 @@ else if($cardNumber==2){
 			
 		$index1 = $board->getIndex($originalSpace1);
 
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+
 		// increment the index by 1 for special case of two
 		$index1 += 1;
 
@@ -1434,6 +1453,8 @@ else if($cardNumber==2){
 
 		// move pawn2
 		$pieceNumber=2;
+
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -1579,6 +1600,8 @@ else if($cardNumber==2){
 
 		// move pawn3
 		$pieceNumber=3;
+
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -1723,6 +1746,8 @@ else if($cardNumber==2){
 
 		// move pawn4
 		$pieceNumber=4;
+
+		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -1862,19 +1887,19 @@ else if($cardNumber==2){
 		}
 	}
 
-	// else if pawn1 is not in home and pawn1 is not in start and $index1+cardNumber is not occupied by compPawn and $index1+$cardNumber< SOME CONSTANT
-	// else if pawn2 is not in home and pawn2 is not in start and $index2+cardNumber is not occupied by compPawn and $index2+$cardNumber< SOME CONSTANT
-	// else if pawn3 is not in home and pawn3 is not in start and $index3+cardNumber is not occupied by compPawn and $index3+$cardNumber< SOME CONSTANT
-	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber is not occupied by compPawn and $index4+$cardNumber< SOME CONSTANT
+	// else if pawn1 is not in home and pawn1 is not in start and $index1+cardNumber is not occupied by compPawn
+	// else if pawn2 is not in home and pawn2 is not in start and $index2+cardNumber is not occupied by compPawn
+	// else if pawn3 is not in home and pawn3 is not in start and $index3+cardNumber is not occupied by compPawn
+	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber is not occupied by compPawn
 	// else
 }
 
 //if card is a 3
 else if($cardNumber==3){
-	//if pawn1 is not in home and pawn1 is not in start and $index1+$cardNumber is not occupied by compPawn and $index1+$cardNumber<Some Constant
-	//else if pawn2 is not in home and pawn2 is not in start and $index2+$cardNumber is not occupied by compPawn and $index2+$cardNumber<Some Constant
-	//else if pawn3 is not in home and pawn3 is not in start and $index3+$cardNumber is not occupied by compPawn and $index3+$cardNumber<Some Constant
-	//else if pawn4 is not in home and pawn4 is not in start and $index4+$cardNumber is not occupied by compPawn and $index4+$cardNumber<Some Constant
+	//if pawn1 is not in home and pawn1 is not in start and $index1+$cardNumber is not occupied by compPawn and $index1+$cardNumber
+	//else if pawn2 is not in home and pawn2 is not in start and $index2+$cardNumber is not occupied by compPawn and $index2+$cardNumber
+	//else if pawn3 is not in home and pawn3 is not in start and $index3+$cardNumber is not occupied by compPawn and $index3+$cardNumber
+	//else if pawn4 is not in home and pawn4 is not in start and $index4+$cardNumber is not occupied by compPawn and $index4+$cardNumber
 }
 
 else if($cardNumber==4){
