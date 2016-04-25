@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// print($color);
 	// $deck->shuffle();
 	$cardNumber = $deck->draw();
-	$cardNumber = 4;
 	print('<h2>Which piece(s) would you like to move ?</h2>');
 
 	// Start the form
