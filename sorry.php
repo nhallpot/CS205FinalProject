@@ -230,10 +230,6 @@ print '</article>';
       	<script type="text/javascript">
       	 function setPosition(){
               if (sessionStorage.getItem("pawns") != null) {
-              	// Set card value 
-              	var info = document.getElementById('movePawn').getAttribute('value').split(",");
-              	var spaces = info[1];
-                document.getElementById("card").style.src = "images/" + spaces + ".jpg";
 
                 // Load positions of pawns
                 var pawns = JSON.parse(sessionStorage.getItem("pawns"));

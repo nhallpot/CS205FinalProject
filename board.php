@@ -28,6 +28,10 @@
               var spaces = info[1];
               var newSpace = info[2].toLowerCase();
                 
+              // Set card 
+              var card = "images/" + spaces + ".jpg";
+              console.log(card);
+              document.getElementById("card").style.src = card;
 
                imgObj = document.getElementById(pawn);
                imgObj.style.position= 'absolute'; 
@@ -51,15 +55,19 @@
                   }
               }
               var i = 0;
+              console.log(arrayIndex);
               // If it is at start, skip through for loop to move and place
-              // at first index after start
+              // at first index after start if it is a 1, 2, or 13 otherwise stay
               if (spacePos[arrayIndex-1].includes("5-1")) {
                 console.log(spaces);
-                if (spaces === 1 || spaces === 2 || spaces === 13) {
+                if (spaces == 1 || spaces == 2 || spaces == 13) {
+                  console.log("check");
                   arrayIndex -= 2;
                   i = spaces;  
                   imgObj.style.left = spacePos[arrayIndex][0] + 'px';
                   imgObj.style.top = spacePos[arrayIndex][1] + 'px';
+                } else {
+                  i = spaces;
                 }
               }
               // If it'll pass home, skip over for loop
@@ -67,7 +75,7 @@
                   i = spaces;
               }
               // Cycle through loop moving pawn 1 space at a time
-              for(i; i < spaces; i++) {
+              for (i; i < spaces; i++) {
                       var endOfBoard = false;
                       // if pawn is at end of board 
                       if (arrayIndex === spacePos.length - 1) {
