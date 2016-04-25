@@ -205,18 +205,9 @@ print '</article>';
       <img id="R3" class="pawn" src="images/redPawn.png" />
       <img id="R4" class="pawn" src="images/redPawn.png" />
       <img id="Y1" class="pawn" src="images/yellowPawn.png" />
-	
-
-		<!-- Pawn test <figure class = "greenHome">
-			<img src="images/redPawn.png">
-		</figure> -->
 	</article> 
 
-
-	<form id="updateButton" style="top:125px;position:absolute;">
-         
-         <input type="button" value="red pawn" onclick="move('R1','1');" />
-    </form>
+	<!--
 
     <form id="updateButton2" style="top:150px;position:absolute;">
          
@@ -237,9 +228,10 @@ print '</article>';
          
          <input type="button" value="yellow pawn" onclick="move('Y1','2');" />
     </form>
-
+	
 
     <button>get position</button>
+	-->
 
     <script type="text/javascript" src="move.js"></script>
 
@@ -253,6 +245,13 @@ print '</article>';
 		});
 	   </script>
 }); 
+
+<form id="updateButton" style="top:125px;position:absolute;">
+         
+         <script type = "text/javascript">
+         </script>
+      	<input type="button" value="Move piece" onclick="move('R1','1');" />
+    </form>
 
 <?php
 include "footer.php";
