@@ -128,7 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// Move the piece
 	print("<h1> HERE IS THE NEW CARD NUMBER".$cardNumber);
 	$board = new Board(); // Create a board
-	echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.'"</div>'; // Inject div so they can grab from javascript
 
 
 	// Find the current position of the piece
@@ -162,6 +161,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
 	
 	$updated = $thisDatabaseWriter->update($updateQuery,$data);
+
+
+	// Grab the new space from the db after update
+	$newPieceSpaceNumberColor = $thisDatabaseReader->select($selectQuery,$data);
+	print_r("<h1> NEW PIECE SPACE NUMBER AND COLOR: ".$newPieceSpaceNumberColor[0][0]);
+	
+
+	$newSpaceColor = $newPieceSpaceNumberColor[0][0];
+	print("<h1> New Space Color: ".$newSpaceColor);
+	$newSpaceNumber = $newPieceSpaceNumberColor[0][1];
+
+	echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.','.$newSpaceColor.$newSpaceNumber.'"</div>'; // Inject div so they can grab from javascript
 
 	// Debug
 	if($debug)
