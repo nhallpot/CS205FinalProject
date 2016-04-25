@@ -43,6 +43,20 @@ figcaption {
     width: 630px;
 }
 
+#faceDown {
+    height:185px;
+    left:196px;
+    position:absolute;
+    top:227px;
+}
+
+#card {
+    height:185px;
+    left:332px;
+    position:absolute;
+    top:229px;
+}
+
 h1, h2, h3, h4, h5, h6{
     padding: 1.5em 0 .8em 0;
 }

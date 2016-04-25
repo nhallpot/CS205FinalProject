@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {	
 	print('<h2>Which piece(s) would you like to move ?</h2>');
 	print('<form action="sorry.php" method="post">
-			<input type="submit" name="Draw Card" value="Draw Card" onclick= "move("R1","1")"/>');
+			<input type="submit" name="Draw Card" value="Draw Card"/>');
 	// Let user select their piece
 	print('<input type="radio" name="piece" value="1">1</input>');
 	print('<input type="radio" name="piece" value="2">2</input>');
@@ -217,7 +217,63 @@ print '</article>';
       <img id="R3" class="pawn" src="images/redPawn.png" />
       <img id="R4" class="pawn" src="images/redPawn.png" />
       <img id="Y1" class="pawn" src="images/yellowPawn.png" />
+      <img id="Y2" class="pawn" src="images/yellowPawn.png" />
+      <img id="Y3" class="pawn" src="images/yellowPawn.png" />
+      <img id="Y4" class="pawn" src="images/yellowPawn.png" />
+      <img id="faceDown" src="images/back.jpg"/>
+      <img id="card" src="images/0.jpg"/>
 	</article> 
+
+	<form id="updateButton" style="top:125px;position:absolute;">
+      	<input type="button" value="Move piece" onclick="move();"/>
+
+      	<script type="text/javascript">
+      	 function setPosition(){
+              if (sessionStorage.getItem("pawns") != null) {
+              	// Set card value 
+              	var info = document.getElementById('movePawn').getAttribute('value').split(",");
+              	var spaces = info[1];
+                document.getElementById("card").style.src = "images/" + spaces + ".jpg";
+
+                // Load positions of pawns
+                var pawns = JSON.parse(sessionStorage.getItem("pawns"));
+                // Set them on grid
+                var x = 0;
+                var y = 1;
+                while (x < pawns.length) {
+                  var pawn = 'R' + (y).toString();
+                  var imgObj = document.getElementById(pawn);
+                  imgObj.style.position = 'absolute';
+                  imgObj.style.left = pawns[x][0] + 'px';
+                  imgObj.style.top = pawns[x][1] + 'px';
+                  x++;
+                  pawn = 'Y' + (y).toString();
+                  imgObj = document.getElementById(pawn)
+                  imgObj.style.position = 'absolute';
+                  imgObj.style.left = pawns[x][0] + 'px';
+                  imgObj.style.top = pawns[x][1] + 'px';
+                  x++;
+                  y++;
+                }
+
+              var info = document.getElementById('movePawn').getAttribute('value').split(",");
+              var pawn = info[0];
+              var spaces = info[1];
+              var newSpace = info[2].toLowerCase();
+                document.getElementById('info').innerHTML = "You drew a " + spaces;
+              }
+            } 
+
+            window.onload = setPosition();
+            </script>
+</form>
+
+
+<!-- NEED TO MAKE THIS WORKkkkkkkkkKKKKKKKK
+<form id="clear" style ="top:150px; position:absolute;"/>
+	<input type ="button" value="Clear board" onclick="clear();"/>
+</form>
+-->
 
 	<!--
 
@@ -245,7 +301,7 @@ print '</article>';
     <button>get position</button>
 	-->
 
-    <script type="text/javascript" src="move.js"></script>
+
 
 
       <script type="text/javascript">
@@ -256,14 +312,6 @@ print '</article>';
 			});
 		});
 	   </script>
-}); 
-
-<form id="updateButton" style="top:125px;position:absolute;">
-         
-         <script type = "text/javascript">
-         </script>
-      	<input type="button" value="Move piece" onclick="move('R1','1');" />
-    </form>
 
 <?php
 include "footer.php";
