@@ -695,7 +695,7 @@ if($cardNumber == 1){
 	}
 
 	// else if pawn1 is not in home and not in start and pawn1.pos+1 is not occupied by compPawn
-	else if(($originalSpace1!='y5-1')&&($originalSpace1!='y3-6')&&($index2!=$index1+1)&&($index3!=$index1+1)&&($index4!=$index1+1)){
+	else if(($originalSpace1!='y5-1')&&($originalSpace1!='y3-6')&&((($index2!=($index1+$cardNumber))&&($index3!=($index1+$cardNumber))&&($index4!=($index1+$cardNumber))) | (($board->getSpace($index1+$cardNumber))==‘y3-6’))){
 		
 		// move pawn1
 
