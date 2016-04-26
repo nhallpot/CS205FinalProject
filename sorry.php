@@ -15,7 +15,7 @@ $deck->shuffle();
 
 print($index);
 // Begin output
-print '<article>';
+print '<article id="infoPanel">';
 //initialize gameOver and computerTurn variables both boolean
 // Build the form for when the user wants to make moves
 // We will need an input for different combos for certain cards that can get split, as well as whether or not a sorry is avialable
@@ -24,7 +24,7 @@ print '<article>';
 if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {	
 	print('<h2>Which piece(s) would you like to move ?</h2>');
-	print('<form action="sorry.php" method="post">
+	print('<form action="sorry.php" method="post" id="drawButtons">
 			<input type="submit" name="Draw Card" value="Draw Card"/>');
 	// Let user select their piece
 	print('<input type="radio" name="piece" value="1">1</input>');
