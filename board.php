@@ -1,7 +1,4 @@
-
-
-    <script type="text/javascript">
-
+<script type="text/javascript">
             var imgObj = null;
             
             var spacePos = ['b1', [13,5],'b2',[52,5],'b3',[91,5],'b3-1',[91, 44], 'b3-2', [91,83], 'b3-3', [91,122], 'b3-4', [91, 161], 'b3-5', [91, 200], 
@@ -16,12 +13,10 @@
                             [13,356],'r8',[13,317],'r9',[13,278],'r10',[13,239],'r11',[13,200],'r12',[13,161],'r13',[13,122],'r14',[13,83],'r15',[13,44]]; 
             var arrayPos=0;
             var arrayIndex=0;
-
             function getCssProperty(elmId, property){
                var elem = document.getElementById(elmId);
                return window.getComputedStyle(elem,null).getPropertyValue(property);
             }
-
             function move(){
               var info = document.getElementById('movePawn').getAttribute('value').split(",");
               var pawn = info[0];
@@ -32,10 +27,8 @@
               var card = "images/" + spaces + ".jpg";
               console.log(card);
               document.getElementById("card").style.src = card;
-
                imgObj = document.getElementById(pawn);
                imgObj.style.position= 'absolute'; 
-
               /*// If new space matches array, then set item to that space
               for (var y = 0; y < spacePos.length; y++) {
                 if (spacePos[y] == newSpace) {
@@ -43,8 +36,6 @@
                   imgObj.style.top = spacePos[y+1][1] + 'px';
                 }
               }*/
-
-
               // Find position that piece is currently at
                 for (var x = 0; x < spacePos.length; x++) {
                   arr = spacePos[x];
@@ -113,11 +104,9 @@
                       imgObj.style.top = spacePos[arrayIndex+8][1] + 'px';
                     }
                   }
-
               // Save position
               savePosition();
             }
-
             function savePosition() {
               var pawns = [];
               var x = 0;
@@ -138,9 +127,7 @@
               // Store them in session
               sessionStorage.setItem("pawns", JSON.stringify(pawns));
             }
-
             function clear() {
               sessionStorage.clear();
             }
-
       </script>
