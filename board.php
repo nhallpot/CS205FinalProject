@@ -28,10 +28,6 @@
               var spaces = info[1];
               var newSpace = info[2].toLowerCase();
                 
-              // Set card 
-              var card = "images/" + spaces + ".jpg";
-              console.log(card);
-              document.getElementById("card").style.src = card;
 
                imgObj = document.getElementById(pawn);
                imgObj.style.position= 'absolute'; 
@@ -142,5 +138,12 @@
             function clear() {
               sessionStorage.clear();
             }
+
+            /*function sorry(enemy) {
+              // check items to see if there is at least one in home or start
+              
+                document.getElementById('info').innerHTML = "Please click";
+
+            }*/
 
       </script>

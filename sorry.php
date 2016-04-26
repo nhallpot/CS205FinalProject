@@ -228,7 +228,7 @@ print '</article>';
       	<input type="button" value="Move piece" onclick="move();"/>
 
       	<script type="text/javascript">
-      	 function setPosition(){
+      	 function setPosition() {
               if (sessionStorage.getItem("pawns") != null) {
 
                 // Load positions of pawns
@@ -250,18 +250,26 @@ print '</article>';
                   imgObj.style.top = pawns[x][1] + 'px';
                   x++;
                   y++;
-                }
+                } // end while
 
-              var info = document.getElementById('movePawn').getAttribute('value').split(",");
-              var pawn = info[0];
-              var spaces = info[1];
-              var newSpace = info[2].toLowerCase();
-                document.getElementById('info').innerHTML = "You drew a " + spaces;
-              }
-            } 
+              	// Update top info
+	              var info = document.getElementById('movePawn').getAttribute('value').split(",");
+	              var pawn = info[0];
+	              var spaces = info[1];
+	              var newSpace = info[2].toLowerCase();
+	              if (spaces == -4) {
+	              	document.getElementById('info').innerHTML = "You drew a " + 4 + ", move back 4 spaces";
+	              } else if (spaces == 13) {
+	              	document.getElementById('info').innerHTML = "You drew a Sorry card!";
+	              	setTimeout(sorry(), 1500);
+	              } else {
+	             	 document.getElementById('info').innerHTML = "You drew a " + spaces;
+	              }	 
+              } // end if
+            } // end function
 
             window.onload = setPosition();
-            </script>
+        </script>
 </form>
 
 
