@@ -15,8 +15,11 @@ print '<h2>Sample Page</h2>';
 // Create a board
 $board = new Board(); 
 
+$deck = new Deck(); // Instantiate a Deck that will be used throughout program.
+$deck->shuffle();
+
 // initialize cardNumber for testing purposes
-$cardNumber=2;
+$cardNumber = $deck->draw();
 
 // define player's color
 $playerColor='R';
@@ -226,6 +229,12 @@ if($cardNumber == 1){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	//else if pawn2 is in start and there isn’t a compPawn on space outside of start
@@ -371,6 +380,12 @@ if($cardNumber == 1){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -519,6 +534,12 @@ if($cardNumber == 1){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
    
 	// else if pawn4 is in start and there isn’t a compPawn on space outside of start
@@ -665,6 +686,12 @@ if($cardNumber == 1){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn1 is not in home and not in start and pawn1.pos+1 is not occupied by compPawn
@@ -806,6 +833,12 @@ if($cardNumber == 1){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -951,6 +984,12 @@ if($cardNumber == 1){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 	
@@ -1098,6 +1137,12 @@ if($cardNumber == 1){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 		
 	// else if pawn4 is not in home and not in start and pawn4.pos+1 is not occupied by compPawn
@@ -1243,10 +1288,18 @@ if($cardNumber == 1){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
-	else
+
+	else{
 		
 		//forfiet turn	
+	}
 	
 }
 
@@ -1446,6 +1499,12 @@ else if($cardNumber==2){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	//else if pawn2 is in start and there isn’t a compPawn on space outside of start
@@ -1591,6 +1650,12 @@ else if($cardNumber==2){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -1739,6 +1804,12 @@ else if($cardNumber==2){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
    
 	// else if pawn4 is in start and there isn’t a compPawn on space outside of start
@@ -1885,6 +1956,12 @@ else if($cardNumber==2){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn1 is not in home and pawn1 is not in start and $index1+cardNumber is not occupied by compPawn and piece does not go past home ($index1<30 && $index1+$cardNumber<=30)
@@ -2028,6 +2105,12 @@ else if($cardNumber==2){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -2175,6 +2258,12 @@ else if($cardNumber==2){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn3 is not in home and pawn3 is not in start and $index3+cardNumber is not occupied by compPawn and $index3<30 && $index3+cardNumber <= 30
@@ -2320,6 +2409,12 @@ else if($cardNumber==2){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -2467,9 +2562,18 @@ else if($cardNumber==2){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
-	// else
+	else{
+
+		//forfeit
+	}
 }
 
 //if card is a 3
@@ -2669,6 +2773,12 @@ else if($cardNumber==3){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn2 is not in home and pawn2 is not in start and $index2+cardNumber is not occupied by compPawn and $index2<30 $index2+cardNumber <= 30
@@ -2814,6 +2924,12 @@ else if($cardNumber==3){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -2961,6 +3077,12 @@ else if($cardNumber==3){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber is not occupied by compPawn && ($index4<30 && $index4+cardNumber <= 30)
@@ -3106,6 +3228,12 @@ else if($cardNumber==3){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -3312,6 +3440,12 @@ else if($cardNumber==4){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn2 is not in home and pawn2 is not in start and $index2+cardNumber is not occupied by compPawn
@@ -3457,6 +3591,12 @@ else if($cardNumber==4){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -3604,6 +3744,12 @@ else if($cardNumber==4){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber is not occupied by compPawn
@@ -3749,6 +3895,12 @@ else if($cardNumber==4){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -3955,6 +4107,12 @@ else if($cardNumber==5){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn2 is not in home and pawn2 is not in start and $index2+cardNumber is not occupied by compPawn and $index2<30 $index2+cardNumber <= 30
@@ -4100,6 +4258,12 @@ else if($cardNumber==5){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -4247,6 +4411,12 @@ else if($cardNumber==5){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber is not occupied by compPawn && ($index4<30 && $index4+cardNumber <= 30)
@@ -4393,6 +4563,13 @@ else if($cardNumber==5){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
+
 	}
 
 	else{
@@ -4598,6 +4775,12 @@ else if($cardNumber==7){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn2 is not in home and pawn2 is not in start and $index2+cardNumber is not occupied by compPawn and $index2<30 $index2+cardNumber <= 30
@@ -4743,6 +4926,12 @@ else if($cardNumber==7){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -4890,6 +5079,12 @@ else if($cardNumber==7){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber is not occupied by compPawn && ($index4<30 && $index4+cardNumber <= 30)
@@ -5035,6 +5230,12 @@ else if($cardNumber==7){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -5241,6 +5442,12 @@ else if($cardNumber==8){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn2 is not in home and pawn2 is not in start and $index2+cardNumber is not occupied by compPawn and $index2<30 $index2+cardNumber <= 30
@@ -5386,6 +5593,12 @@ else if($cardNumber==8){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -5533,6 +5746,12 @@ else if($cardNumber==8){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber is not occupied by compPawn && ($index4<30 && $index4+cardNumber <= 30)
@@ -5678,6 +5897,12 @@ else if($cardNumber==8){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -5888,6 +6113,12 @@ else if($cardNumber==10){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn2 is not in home and pawn2 is not in start and $index2+cardNumber1 is not occupied by compPawn and $index2<30 $index2+cardNumber1 <= 30
@@ -6033,6 +6264,12 @@ else if($cardNumber==10){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -6180,6 +6417,12 @@ else if($cardNumber==10){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber1 is not occupied by compPawn && ($index4<30 && $index4+cardNumber1 <= 30)
@@ -6326,6 +6569,12 @@ else if($cardNumber==10){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// if pawn1 is not in home and pawn1 is not in start and $index1+cardNumber2 is not occupied by compPawn
@@ -6469,6 +6718,12 @@ else if($cardNumber==10){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -6616,6 +6871,12 @@ else if($cardNumber==10){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn3 is not in home and pawn3 is not in start and $index3+cardNumber2 is not occupied by compPawn 
@@ -6762,6 +7023,12 @@ else if($cardNumber==10){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber1 is not occupied by compPawn
@@ -6907,6 +7174,12 @@ else if($cardNumber==10){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -7115,6 +7388,12 @@ else if($cardNumber==11){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn2 is not in home and pawn2 is not in start and $index2+cardNumber is not occupied by compPawn and $index2<30 $index2+cardNumber <= 30
@@ -7260,6 +7539,12 @@ else if($cardNumber==11){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -7407,6 +7692,12 @@ else if($cardNumber==11){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber is not occupied by compPawn && ($index4<30 && $index4+cardNumber <= 30)
@@ -7552,6 +7843,12 @@ else if($cardNumber==11){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -7758,6 +8055,12 @@ else if($cardNumber==12){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn2 is not in home and pawn2 is not in start and $index2+cardNumber is not occupied by compPawn and $index2<30 $index2+cardNumber <= 30
@@ -7903,6 +8206,12 @@ else if($cardNumber==12){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
@@ -8050,6 +8359,12 @@ else if($cardNumber==12){
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
 		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
+		}
 	}
 
 	// else if pawn4 is not in home and pawn4 is not in start and $index4+cardNumber is not occupied by compPawn && ($index4<30 && $index4+cardNumber <= 30)
@@ -8195,6 +8510,12 @@ else if($cardNumber==12){
 			$updateQuery = "UPDATE Piece p SET p.SpaceColor='".$newPlayerSpaceColor4."', p.SpaceNumber='".$newPlayerSpaceNumber4."' WHERE p.Color = '".$playerColor."' AND p.Number = '".$pieceNumber."'";
 		
 			$updated = $thisDatabaseWriter->update($updateQuery,$data);
+		}
+
+		else{
+
+			//define pieceNumber
+			$pieceNumber=1;	
 		}
 	}
 
