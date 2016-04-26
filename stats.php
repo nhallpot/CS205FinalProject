@@ -6,8 +6,8 @@ include "top.php";
 <?php
 //################################
 //This page acts as a simple GUI for displaying pre-canned queries from the database
-print '<body';
-print '<br>';
+print '<body>';
+print '<h1 id="stat">Statistics</h1>';
 print '<br>';
 print '<h2>Hard Mode</h2>';
 print'<ol> ';     
