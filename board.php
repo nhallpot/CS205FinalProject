@@ -31,6 +31,8 @@
 
                imgObj = document.getElementById(pawn);
                imgObj.style.position= 'absolute'; 
+               var arr;
+               var index = 1;
 
               /*// If new space matches array, then set item to that space
               for (var y = 0; y < spacePos.length; y++) {
@@ -55,7 +57,6 @@
               // If it is at start, skip through for loop to move and place
               // at first index after start if it is a 1, 2, or 13 otherwise stay
               if (spacePos[arrayIndex-1].includes("5-1")) {
-                console.log(spaces);
                 if (spaces == 1 || spaces == 2 || spaces == 13) {
                   console.log("check");
                   arrayIndex -= 2;
@@ -144,6 +145,6 @@
               
                 document.getElementById('info').innerHTML = "Please click";
 
-            }*/
+            }
 
       </script>
