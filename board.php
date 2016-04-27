@@ -57,12 +57,11 @@
               }
 
               // Convert 4
-              if (parseInt(spaces) === -4) {
+              if (parseInt(spaces) === -4 && i != spaces) {
                   spaces = 4;
               }
 
               var style = true;
-              var returnIndex = arrayIndex;
               // Cycle through loop moving pawn 1 space at a time
               for (i; i < spaces; i++) {
                       var endOfBoard = false;
@@ -82,33 +81,37 @@
                       } 
 
                       // if pawn is near start
-                      else if (spacePos[(arrayIndex - 1) + 2].includes('5-') && !spacePos[(arrayIndex - 1) + 2].includes('3-5')){
+                      else if (spacePos[arrayIndex + 1].includes('5-') && !spacePos[arrayIndex-1].includes('3-')) {
                         arrayIndex += 2;
                       }
 
                       // If spaces if 4 card and it is near beginning of array
-                      else if (spaces == 4 && arrayIndex === 1 ) {
+                      else if (spaces === 4 && arrayIndex === 1 ) {
                         arrayIndex = spacePos.length - 1;
                         endOfBoard = true;
                       }
                       // If spaces is a 4 card, decrease index by 2
-                      else if (spaces == 4) {
+                      else if (spaces === 4) {
                         arrayIndex -= 2;
                         endOfBoard = true;
+                      } else if (spacePos[arrayIndex-1].includes("5-1")) {
+                        arrayIndex -= 2;
                       }
 
-                      // increase index by 2
+                        // If pawn will pass home
+                      else if (spacePos[arrayIndex-1].includes('3-6') && i != spaces) {
+                        // Check for correct color
+                        if (spacePos[arrayIndex+1].charAt(0).toUpperCase() == pawn.charAt(0).toUpperCase() ) {
+                          i = spaces;
+                          style = false;
+                        }
+                      }
+
+                        // increase index by 2
                       if (!endOfBoard) {
                         arrayIndex += 2;
                       }
 
-                       // If pawn will pass home
-                      if (spacePos[arrayIndex - 1].includes('3-6') && i !== spaces) {
-                        arrayIndex = returnIndex; 
-                        i = spaces;
-                        console.log("check");
-                        style = false;
-                      }
                 } // end for
 
                   // Style
@@ -137,11 +140,6 @@
               // Set info
               setInfo(type);
 
-              // Check for win
-             //  win(0);
-
-              // check win again
-              // win(1);
             }
 
 
@@ -178,7 +176,7 @@
                 var name = "You";
               } else {
                 var pawnType = "moveComp";
-                var name = "Enemy";
+                var name = "Opponent";
               }
               var info = document.getElementById(pawnType).getAttribute('value').split(",");
               var pawn = info[0];
@@ -206,32 +204,74 @@
                 document.getElementById('info').innerHTML = name + " drew Sorry! Move 13 spaces";
               } // otherwise
               else {
-                document.getElementById('info').innerHTML = name + " drew a(n) " + displaySpaces;
+                document.getElementById('info').innerHTML = name + " drew " + displaySpaces;
               } 
 
 
               // Set timeout for next item
               window.setTimeout(function()
                 { // Make it out of start
-                  if ((spaces == 1 || spaces == 2 || spaces == 13) && spacePos[arrayIndex-1].includes("5")) {
+                  if ((spaces == 1 || spaces == 2 || spaces == 13) && spacePos[arrayIndex-1].includes("5") && !spacePos[arrayIndex-1].includes("3-5")) {
                     document.getElementById('info').innerHTML = "The pawn can move out of start";
                   } else if ((spaces != 1 || spaces != 2 || spaces != 13) && spacePos[arrayIndex-1].includes("5-1")) {
-                    document.getElementById('info').innerHTML = name +" must draw a 1, 2, or Sorry! card to move out of start";
+                    document.getElementById('info').innerHTML = name + " must draw a 1, 2, or Sorry! to get out of start";
                   }
 
                   // Near home
-                  if (spacePos[(arrayIndex-1)].includes("3-")) {
-                    if (spacePos[arrayIndex-1].includes('3-6')) {
-                      document.getElementById('info').innerHTML = "Pawn is already at home!";
-                    }
+                  if (spacePos[(arrayIndex-1)].includes("3-6")) {
+                      document.getElementById('info').innerHTML = "Pawn is home!";
                   }
                 }, 2000);
 
+              // Check if you won
+              var winner = win(0);
+
                 // enemy move
-              if (parseInt(type) === 0) {
+              if (parseInt(type) === 0 && !win) {
                 move(1);
+                // Check if they won
+                win(1);
               }
 
+            } // end function
+
+            function win(type) {
+              var name;
+              var letter;
+              if (parseInt(type) === 0) {
+                name = "You";
+                letter = 'R';
+              } else {
+                name = "Opponent";
+                letter = "Y";
+              }
+
+              var win = false;
+              var count = 0;
+              // Check each pawn to see if on start
+              for (var a = 1; a < 5; a++) {
+                var pawn = letter + a;
+                // Find position of pawn
+                for (var b = 0; b < spacePos.length; b++) {
+                  var arr = spacePos[b];
+                  if (Array.isArray(arr)) {
+                    if (arr[0] === parseInt(getCssProperty(pawn,'left')) && (arr[1] === parseInt(getCssProperty(pawn,'top')))) {
+                         var arrayIndex = b;
+                    }
+                  }
+                } // end inner
+                if (spacePos[arrayIndex-1].includes("3-6")) {
+                    count++;
+                }
+              } // end outer
+
+              if (count === 4) {
+                document.getElementById('info').innerHTML = name + " win!";
+                document.getElementById('drawCard').disabled = true;
+                win = true;
+              }
+
+              return win;
             } // end function
 
         
