@@ -125,6 +125,7 @@ class Database {
                 break;
         }
 
+
         $query = NULL;
 
         $dsn = 'mysql:host=webdb.uvm.edu;dbname=';
@@ -133,6 +134,7 @@ class Database {
             print "<p>Username: " . $dbUserName;
             print "<p>DSN: " . $dsn . $dbName;
             print "<p>PW: " . $whichPass;
+
         }
 
         try {
@@ -155,113 +157,12 @@ class Database {
         return $this->db;
     }
 
-    // #########################################################################
-    // counts the number of conditional statements in the query
-    // its tricky since OR is in ORDER as is AND is in LAND etc.
-    // AND, &&	Logical AND
-    // NOT, !	Negates value
-    // ||, OR	Logical OR
-    // XOR
-    private function countConditions($query) {
-        $conditions = 0;
-        $andCount = 0;
-        $notCount = 0;
-        $orCount = 0;
-        $xorCount = 0;
-
-        $andCount = substr_count(strtoupper($query), ' AND ');
-        $andCount = $andCount + substr_count(strtoupper($query), ')AND');
-        $andCount = $andCount + substr_count(strtoupper($query), '&&');
-
-        $notCount = substr_count(strtoupper($query), ' NOT');
-        $notCount = $notCount + substr_count(strtoupper($query), ')NOT');
-        $notCount = $notCount + substr_count(strtoupper($query), '!');
-
-        $orCount = substr_count(strtoupper($query), ' OR');
-        $orCount = $orCount + substr_count(strtoupper($query), ')OR');
-        $orCount = $orCount + substr_count(strtoupper($query), '||');
-
-        $xorCount = substr_count(strtoupper($query), ' XOR');
-
-        $countConditions = $andCount + $notCount + $orCount + $xorCount;
-
-        return $countConditions;
-    }
-
-    // #########################################################################
-    // counts the number of quotes, single and double  plus html entity 
-    // equivalents found in your query.
-    private function countQuotes($query) {
-        $quoteCount = 0;
-        $singleCount = 0;
-        $doubleCount = 0;
-        $singleEntityCount = 0;
-        $doubleEntityCount = 0;
-        $HTMLentityCount = 0;
-
-        $singleCount = substr_count(strtoupper($query), "'");
-        $doubleCount = substr_count(strtoupper($query), '"');
-        $singleEntityCount = substr_count(strtoupper($query), "#39");
-        $doubleEntityCount = substr_count(strtoupper($query), "#34");
-        $HTMLentityCount = substr_count(strtoupper($query), "&QUOT");
-
-        $quoteCount = $singleCount + $doubleCount + $singleEntityCount + $doubleEntityCount + $HTMLentityCount;
-
-        return $quoteCount;
-    }
-
-    // #########################################################################
-    // counts the number of symbols, mostly < and > which would be convereted to 
-    // html entites in the method sanitize query if we dont flag them.
-    private function countSymbols($query) {
-        $symbolCount = 0;
-        $ltCount = 0;
-        $gtCount = 0;
-
-        $ltCount = substr_count(strtoupper($query), '<');
-        $gtCount = substr_count(strtoupper($query), '>');
-
-        $symbolCount = $ltCount + $gtCount;
-
-        return $symbolCount;
-    }
-
-    // #########################################################################
-    // counts the number of where clauses in the query. a select in a select 
-    // will often have two where clauses (one for each query)
-    private function countWhere($query) {
-        $whereCount = 0;
-
-        $whereCount = substr_count(strtoupper($query), ' WHERE ');
-
-        return $whereCount;
-    }
 
     // #########################################################################
     // Performs a delete query and returns boolean true or false based on 
     // success of query. 
-    public function delete($query, $values = "", $wheres = 1, $conditions = 0, $quotes = 0, $symbols = 0, $spacesAllowed = false, $semiColonAllowed = false) {
+    public function delete($query, $values = "") {
         $success = false;
-
-        if ($wheres != $this->countWhere($query)) {
-            return $success;
-        }
-
-        if ($conditions != $this->countConditions($query)) {
-            return $success;
-        }
-
-        if ($quotes != $this->countQuotes($query)) {
-            return $success;
-        }
-
-        if ($symbols != $this->countSymbols($query)) {
-            return $success;
-        }
-
-        if ($quotes == 0 AND $symbols == 0) {
-            $query = $this->sanitizeQuery($query, $spacesAllowed, $semiColonAllowed);
-        }
 
         $statement = $this->db->prepare($query);
 
@@ -279,28 +180,9 @@ class Database {
     //############################################################################
     // Performs an insert query and returns boolean true or false based on success
     // of query.     
-    public function insert($query, $values = "", $wheres = 0, $conditions = 0, $quotes = 0, $symbols = 0, $spacesAllowed = false, $semiColonAllowed = false) {
+    public function insert($query, $values = "") {
         $success = false;
 
-        if ($wheres != $this->countWhere($query)) {
-            return $success;
-        }
-
-        if ($conditions != $this->countConditions($query)) {
-            return $success;
-        }
-
-        if ($quotes != $this->countQuotes($query)) {
-            return $success;
-        }
-
-        if ($symbols != $this->countSymbols($query)) {
-            return $success;
-        }
-
-        if ($quotes == 0 AND $symbols == 0) {
-            $query = $this->sanitizeQuery($query, $spacesAllowed, $semiColonAllowed);
-        }
 
         $statement = $this->db->prepare($query);
 
@@ -384,29 +266,12 @@ class Database {
     //  $spacesAllowed are %20 and not a blank space
     //  $semiColonAllowed is ; and generally you do not have them in your query
     //
-    public function select($query, $values = "", $wheres = 1, $conditions = 0, $quotes = 0, $symbols = 0, $spacesAllowed = false, $semiColonAllowed = false) {
+    public function select($query, $values = "") {
 
-        if ($wheres != $this->countWhere($query)) {
-            return "";
-        }
-
-        if ($conditions != $this->countConditions($query)) {
-            return "";
-        }
-
-        if ($quotes != $this->countQuotes($query)) {
-            return "";
-        }
-
-        if ($symbols != $this->countSymbols($query)) {
-            return "";
-        }
-
-        if ($quotes == 0 AND $symbols == 0) {
-            $query = $this->sanitizeQuery($query, $spacesAllowed, $semiColonAllowed);
-        }
-
+        
         $statement = $this->db->prepare($query);
+        print($statement->error);
+        print($db->error);
 
         if (is_array($values)) {
             $statement->execute($values);
@@ -421,79 +286,13 @@ class Database {
         return $recordSet;
     }
 
-    // #########################################################################
-    public function testquery($query, $values = "", $wheres = 0, $conditions = 0, $quotes = 0, $symbols = 0, $spacesAllowed = false, $semiColonAllowed = false) {
 
-        print "<p>TEST Query: This method does not execute a query but it does print out all the information so you can see it. Generally you have a mistake with the parameters.</p>";
-
-        print "<p>The first number represents the number you pass into the method. The second number represents what the method counted. If the numbers do not match the query will fail.</p>";
-
-        print "<p>WHERE: " . $wheres . " = " . $this->countWhere($query) . "</p>";
-        if ($wheres != $this->countWhere($query)) {
-            print "<p class='noticeMe'>Failed where count.</p>";
-        }
-
-        print "<p>CONDITIONS: " . $conditions . " = " . $this->countConditions($query) . "</p>";
-        if ($conditions != $this->countConditions($query)) {
-            print "<p class='noticeMe'>Failed conditions count.</p>";
-        }
-
-        print "<p>QUOTES: " . $quotes . " = " . $this->countQuotes($query) . "</p>";
-        if ($quotes != $this->countQuotes($query)) {
-            print "<p class='noticeMe'>Failed quote count.</p>";
-        }
-
-        print "<p>SYMBOLS: " . $symbols . " = " . $this->countSymbols($query) . "</p>";
-        if ($symbols != $this->countSymbols($query)) {
-            print "<p class='noticeMe'>Failed symbol count.</p>";
-        }
-
-        if ($quotes == 0 AND $symbols == 0) {
-
-            $query = $this->sanitizeQuery($query, $spacesAllowed, $semiColonAllowed);
-            print "<p>Sanitized Query: " . $query . "</p>";
-        }
-
-        print "<p><p>SQL Database.php->testquery will look the same as the sanitized query:</p><p> " . $query . "</p>";
-        print "<p>The values passed along for the query to use:<pre> ";
-        print_r($values);
-        print "</pre></p>";
-
-        if (is_array($values)) {
-            print "<p>The query will execute with values.</p>";
-        } else {
-            print "<p>The query has no values.</p>";
-        }
-
-        return "";
-    }
 
     // #########################################################################
     // Performs an update query and returns boolean true or false based on 
     // success of query. 
-    public function update($query, $values = "", $wheres = 1, $conditions = 0, $quotes = 0, $symbols = 0, $spacesAllowed = false, $semiColonAllowed = false) {
+    public function update($query, $values = "") {
         $success = false;
-
-        if ($wheres != $this->countWhere($query)) {
-            return $success;
-        }
-
-        if ($conditions != $this->countConditions($query)) {
-            return $success;
-        }
-
-        if ($quotes != $this->countQuotes($query)) {
-            return $success;
-        }
-
-        if ($symbols != $this->countSymbols($query)) {
-            return $success;
-        }
-
-        if ($quotes == 0 AND $symbols == 0) {
-            $query = $this->sanitizeQuery($query, $spacesAllowed, $semiColonAllowed);
-        }
-
         $statement = $this->db->prepare($query);
 
         if (is_array($values)) {

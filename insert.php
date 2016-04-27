@@ -12,35 +12,39 @@
 	);
 	foreach($colorArray as $color)
 	{
-		for($j=0; $j < 13; $j++)
+		for($j=1; $j < 16; $j++)
 		{
-			if($j==4)
+			if($j==5)
 			{
-				for($k=0;$k<2;$k++)
+				$values.= "('".$color."','". (string)$j."','0','0','0'),";
+				for($k=1;$k<2;$k++)
 				{
-					$values.="('".$color.(string)$j."-".(string)$k."','0','0','0'),";
+					$values.="('".$color."','".(string)$j."-".(string)$k."','0','0','0'),";
 				}				
 			}
-			elseif($j==2)
+			elseif($j==3)
 			{
-				for($k=0;$k<7;$k++)
+				$values.= "('".$color."','". (string)$j."','0','0','0'),";
+				for($k=1;$k<7;$k++)
 				{
-					$values.="('".$color.(string)$j."-".(string)$k."','0','0','0'),";
-				}
+					$values.="('".$color."','".(string)$j."-".(string)$k."','0','0','0'),";
+                }
 			}
 			else
 			{
-				$values.= "('".$color . (string)$j."','0','0','0'),";
+				$values.= "('".$color."','". (string)$j."','0','0','0'),";
 			}
 		}
 	}
 
-	$query = "INSERT INTO `Space` (`SpaceID`, `isStart`,`isSafety`,`isSlide`) VALUES ".$values;
+	$query = "INSERT INTO `Space` (`SpaceColor`,`SpaceNumber`, `isStart`,`isSafety`,`isSlide`) VALUES ".$values;
 	$query = rtrim($query,',');	
 	$quoteCount = substr_count($query, "'");
 
+	// print($query);
+	// print($quoteCount);
 	// Now that we have built the query, we need to insert it into the database. 
-	$records = $thisDatabaseWriter->insert($query, "", 0, 0, $quoteCount, 0, false, false);
+	$records = $thisDatabaseWriter->insert($query);
 	// if($records)
 	// {
 	// 	print("<p> hey, it could have worked </p>");
@@ -53,21 +57,22 @@
 	foreach ($colorArray as $color) {
 		for($j=1; $j <=4; $j++)
 		{
-			$values2.="('".$color."','".(string)$j."', '".$color."4-1'),";
+			$values2.="('".$color."','".(string)$j."', '".$color."','5-1'),";
 		}
 
 	}
-	$query2 = 'INSERT INTO `Piece` (`Color`, `Number`,`SpaceID`) VALUES'.$values2;
+	$query2 = 'INSERT INTO `Piece` (`Color`, `Number`,`SpaceColor`,`SpaceNumber`) VALUES'.$values2;
 	$query2 = rtrim($query2,',');	
 	$quoteCount2 = substr_count($query2, "'");
 
-	$records2 = $thisDatabaseWriter->insert($query2, "", 0, 0, $quoteCount2, 0, false, false);
+	$records2 = $thisDatabaseWriter->insert($query2);
 	
+	print $query2;
 
-	// $query3 = 'SELECT * FROM Space';
-	// $records3 = $thisDatabaseReader->select($query3,$data,0,0,0,0,false,false);
+	$query3 = 'SELECT * FROM Space';
+	$records3 = $thisDatabaseReader->select($query3,$data,0,0,0,0,false,false);
 
-	// foreach ($records3 as $record) {
-	// 	print($record[0]);
-	// }
+	foreach ($records3 as $record) {
+		print($record[0]);
+	}
 ?>

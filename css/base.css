@@ -31,17 +31,30 @@ figcaption {
     text-align: center;
 }
 
-#index article {
-    margin: auto;
-    text-align: center;
-    width: 50%;
-    background-image: url("../images/sorryBoard.jpg");
+#board {
+    background-image: url("../images/board2.png");
     background-repeat: no-repeat;
-    width: 580px;
-    height: 580px;
-    margin-bottom: 2em;
-    position: relative;
+    background-size: 650px auto;
     box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.5);
+    height: 630px;
+    margin: auto auto 2em;
+    position: relative;
+    text-align: center;
+    width: 630px;
+}
+
+#faceDown {
+    height:185px;
+    left:196px;
+    position:absolute;
+    top:227px;
+}
+
+#card {
+    height:185px;
+    left:332px;
+    position:absolute;
+    top:229px;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -51,16 +64,6 @@ h1, h2, h3, h4, h5, h6{
 header{
     max-width: 30%;
     margin: auto;
-}
-
-.nav-cont{
-    background-color: #f3f7f9;
-    height: 8.5%;
-    margin-left: -5%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.5);
 }
 
 header h1{
@@ -126,10 +129,60 @@ p:nth-child(even){
 
 /*------------------------   pawn positioning  ------------------------------ */
 
-.redStart {
+#R1 {
     position: absolute;
-    right: 160px;
-    bottom: 75px;
+    left: 52px;
+    top: 434px;
+    height:45px;
+}
+
+#R2 {
+    position: absolute;
+    left: 52px;
+    top: 434px;
+    height:45px;
+}
+
+#R3 {
+    position: absolute;
+    left: 52px;
+    top: 434px;
+    height:45px;
+}
+
+#R4 {
+    position: absolute;
+    left: 52px;
+    top: 434px;
+    height:45px;
+}
+
+#Y1 {
+    position: absolute;
+    left: 559px;
+    top: 161px;
+    height:45px;
+}
+
+#Y2 {
+    position: absolute;
+    left: 559px;
+    top: 161px;
+    height:45px;
+}
+
+#Y3 {
+    position: absolute;
+    left: 559px;
+    top: 161px;
+    height:45px;
+}
+
+#Y4 {
+    position: absolute;
+    left: 559px;
+    top: 161px;
+    height:45px;
 }
 
 .redHome {
@@ -174,18 +227,34 @@ p:nth-child(even){
     right: 260px;
 }
 
-img {
-     height: 30px;
+
+
+.nav-cont{
+    background-color: #f3f7f9;
+    height: 80px;
+    margin-left: -5%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #797f82;
 }
+
+.nav-cont img {
+    height: 80px;
+    margin-left: 2%;
+}
+
+
+
 
 /*------------------------   nav section only  ------------------------------ */
 nav ol {
+    left: 410px;
     list-style-type: none;
     position: absolute;
-    top: 2px;
     right: 0;
-    left: 30%;
-    
+    top: 15px;
 }
 
 nav ol li {
@@ -197,8 +266,12 @@ nav ol li {
 nav ol li a {
     text-decoration: none;
     color: black;
-    padding: 1em 2em;
+    padding: 1.7em 2em;
     background-color: #f3f7f9;
+}
+
+nav ol li a#logo {
+    display:none;
 }
 
 nav ol li a:hover {
@@ -210,3 +283,23 @@ li a .activePage {
 }
 
 
+#updateButton{
+    top:400px;
+    position: absolute;
+
+}
+
+.pawn{
+    
+    left: 365px;
+    position: absolute;
+    top: 5px;
+}
+
+
+
+
+
+#stat {
+    font-size: 48pt;
+}

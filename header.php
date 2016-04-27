@@ -1,9 +1,11 @@
 <!-- %%%%%%%%%%%%%%%%%%%%%%     Page header   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <header>
-	<h1> Info </h1>
-<!-- 	<?php
+
+	<h1 id ="info"> Welcome to Sorry! </h1>
+	
+<?php
 		include "info.php";
-	?> -->
-    <a href="index.php"><img alt="Sorry! logo" src="images/sorry.jpg"></a>
+?> 
+    
 </header>
 <!-- %%%%%%%%%%%%%%%%%%%%% Ends Page header   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->

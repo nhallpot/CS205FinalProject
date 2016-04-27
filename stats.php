@@ -1,11 +1,13 @@
 <?php
 include "top.php";
+?>
+
 <link rel="stylesheet" type="text/css" href="css/base.css">
+<?php
 //################################
 //This page acts as a simple GUI for displaying pre-canned queries from the database
-print '<body';
-print '<br>';
-print '<br>';
+print '<body>';
+print '<h1 id="stat">Statistics</h1>';
 print '<h2>Hard Mode</h2>';
 print'<ol> ';     
         
@@ -53,12 +55,10 @@ print'</ol>';
 	if($display=='winsHard'){
 
 		print '<h1>Wins</h1>';
-		print '<p>hi</p>';
 		$stmt = 'SELECT * from Space';
-        print '<p>hi</p>';
 		$winsHard = $thisDatabaseReader->select($stmt,$data,0,0,0,0,false,false);
 
-		print($winsHard[1]);
+		print_r($winsHard[1]);
 
 	}
 	else if($display == 'lossesHard'){
