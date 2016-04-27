@@ -13,7 +13,7 @@ body{
     margin: 0 5% 0 5%;
     background-image:url('../images/background2.png') ;
     background-size: 100%;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: fixed;
 }
 
@@ -77,7 +77,15 @@ figcaption {
     top:229px;
 }
 
+<<<<<<< HEAD
 h1, h3, h4, h5, h6{
+=======
+#info {
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6{
+>>>>>>> refs/remotes/origin/master
     padding: 1.5em 0 .8em 0;
 }
 
