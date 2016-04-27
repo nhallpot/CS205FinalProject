@@ -57,5 +57,5 @@ include "lib/constants.php";
     print '<body id="' . $PATH_PARTS['filename'] . '">';
     include "header.php"; 
     include "nav.php";  
-    include "board.php";
+    // include "board.php";
     ?>
