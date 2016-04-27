@@ -17,12 +17,32 @@ body{
     background-attachment: fixed;
 }
 
-article{
+article#board{
     padding: 2em;
     border: thin solid darkslategray;
     border-radius: 0.4em;
     padding: 0.5em;
 
+}
+
+article#infoPanel {
+    background-color: #f3f7f9;
+    border: thin solid darkslategray;
+    border-radius: 0.4em;
+    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+    margin-left: 330px;
+    padding: 0.5em;
+    width: 500px;
+}
+
+form#drawButtons{
+    margin-left: 100px;
+}
+
+form#updateButton {
+    margin-left: 670px;
+    margin-top: 60px;
 }
 
 figcaption {
@@ -57,12 +77,21 @@ figcaption {
     top:229px;
 }
 
+<<<<<<< HEAD
+h1, h3, h4, h5, h6{
+=======
 #info {
     width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6{
+>>>>>>> refs/remotes/origin/master
     padding: 1.5em 0 .8em 0;
+}
+
+h2{
+    text-align: center;
+    padding:10px;
 }
 
 header{
@@ -70,14 +99,14 @@ header{
     margin: auto;
 }
 
-header h1{
-    padding: 1em;
-    text-align: center;
-    margin: 5em auto 1em auto;
-    font-size: 15pt;
-    border-radius: 30px;
+header h1 {
     background-color: #f3f7f9;
+    border-radius: 30px;
     box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.5);
+    font-size: 15pt;
+    margin: 90px 0 10px;
+    text-align: center;
+    padding:10px;
 }
 
 p{
@@ -95,11 +124,9 @@ section{
 }
 
 footer {
-    padding-top: 0;
     position: absolute;
-    width: 90%;
-    bottom:0;
-    top: 130%;
+    width: 1200px;
+    top:900px;
 }
 
 footer p{
