@@ -77,15 +77,13 @@ figcaption {
     top:229px;
 }
 
-<<<<<<< HEAD
+
 h1, h3, h4, h5, h6{
-=======
 #info {
     width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6{
->>>>>>> refs/remotes/origin/master
     padding: 1.5em 0 .8em 0;
 }
 
