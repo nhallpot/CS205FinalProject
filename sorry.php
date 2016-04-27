@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {	
 	print('<h2>Which piece(s) would you like to move ?</h2>');
 	print('<form action="sorry.php" method="post">
-			<input type="submit" name="Draw Card" value="Draw Card"/>');
+			<input type="submit" name="Draw Card" value="Draw Card" onclick="savePosition()"/>');
 	// Let user select their piece
 	print('<input type="radio" name="piece" value="1">1</input>');
 	print('<input type="radio" name="piece" value="2">2</input>');
@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// Give the user a chance to select which pawn they would like to use (with CSS and Javascript???)
 	
 	// End the form
-	print('<input type="submit" name="Draw Card" value="Draw Another Card"/>');
+	print('<input type="submit" id="drawCard" name="Draw Card" value="Draw Another Card" onclick="savePosition"/>');
 	print("</form>");
 }
 print '</article>';
@@ -170,23 +170,21 @@ print '</article>';
 
 
 	<article id="board">
-	  <img id="R1" class="pawn" src="images/redPawn.png" />
-      <img id="R2" class="pawn" src="images/redPawn.png" />
-      <img id="R3" class="pawn" src="images/redPawn.png" />
-      <img id="R4" class="pawn" src="images/redPawn.png" />
-      <img id="Y1" class="pawn" src="images/yellowPawn.png" />
-      <img id="Y2" class="pawn" src="images/yellowPawn.png" />
-      <img id="Y3" class="pawn" src="images/yellowPawn.png" />
-      <img id="Y4" class="pawn" src="images/yellowPawn.png" />
+	  <img id="R1" class="pawn" src="images/redPawn1.png" />
+      <img id="R2" class="pawn" src="images/redPawn2.png" />
+      <img id="R3" class="pawn" src="images/redPawn3.png" />
+      <img id="R4" class="pawn" src="images/redPawn4.png" />
+      <img id="Y1" class="pawn" src="images/yellowPawn1.png" />
+      <img id="Y2" class="pawn" src="images/yellowPawn2.png" />
+      <img id="Y3" class="pawn" src="images/yellowPawn3.png" />
+      <img id="Y4" class="pawn" src="images/yellowPawn4.png" />
       <img id="faceDown" src="images/back.jpg"/>
-      <img id="card" src="images/0.jpg"/>
+      <img id="card" src=""/>
 	</article> 
 
-	<form id="updateButton" style="top:125px;position:absolute;">
-      	<input type="button" value="Move piece" onclick="move();"/>
-
-      	<script type="text/javascript">
-      	 function setPosition(){
+<script type="text/javascript">
+			
+			function setPosition() {
               if (sessionStorage.getItem("pawns") != null) {
                 // Load positions of pawns
                 var pawns = JSON.parse(sessionStorage.getItem("pawns"));
@@ -208,16 +206,15 @@ print '</article>';
                   x++;
                   y++;
                 }
-              var info = document.getElementById('movePawn').getAttribute('value').split(",");
-              var pawn = info[0];
-              var spaces = info[1];
-              var newSpace = info[2].toLowerCase();
-                document.getElementById('info').innerHTML = "You drew a " + spaces;
               }
-            } 
-            window.onload = setPosition();
+              
+              // Your move
+              move(0);;
+        }
+
+        alert(setPosition());
+
             </script>
-</form>
 
 
 <!-- NEED TO MAKE THIS WORKkkkkkkkkKKKKKKKK

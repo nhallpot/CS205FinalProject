@@ -17,25 +17,21 @@
                var elem = document.getElementById(elmId);
                return window.getComputedStyle(elem,null).getPropertyValue(property);
             }
-            function move(){
-              var info = document.getElementById('movePawn').getAttribute('value').split(",");
+
+            // 0 for player pawn, 1 for enemy pawn
+            function move(type) {
+              if (parseInt(type) == 0) {
+                var moveType = "movePawn";
+              } else {
+                var moveType = "moveComp";
+              }
+              var info = document.getElementById(moveType).getAttribute('value').split(",");
               var pawn = info[0];
               var spaces = info[1];
               var newSpace = info[2].toLowerCase();
-                
-              // Set card 
-              var card = "images/" + spaces + ".jpg";
-              console.log(card);
-              document.getElementById("card").style.src = card;
-               imgObj = document.getElementById(pawn);
-               imgObj.style.position= 'absolute'; 
-              /*// If new space matches array, then set item to that space
-              for (var y = 0; y < spacePos.length; y++) {
-                if (spacePos[y] == newSpace) {
-                  imgObj.style.left = spacePos[y+1][0] + 'px';
-                  imgObj.style.top = spacePos[y+1][1] + 'px';
-                }
-              }*/
+              imgObj = document.getElementById(pawn);
+              imgObj.style.position = "absolute";
+            
               // Find position that piece is currently at
                 for (var x = 0; x < spacePos.length; x++) {
                   arr = spacePos[x];
@@ -46,13 +42,11 @@
                   }
               }
               var i = 0;
-              console.log(arrayIndex);
+
               // If it is at start, skip through for loop to move and place
               // at first index after start if it is a 1, 2, or 13 otherwise stay
               if (spacePos[arrayIndex-1].includes("5-1")) {
-                console.log(spaces);
                 if (spaces == 1 || spaces == 2 || spaces == 13) {
-                  console.log("check");
                   arrayIndex -= 2;
                   i = spaces;  
                   imgObj.style.left = spacePos[arrayIndex][0] + 'px';
@@ -61,18 +55,24 @@
                   i = spaces;
                 }
               }
-              // If it'll pass home, skip over for loop
-              if (spacePos[(arrayIndex-1)].includes("3-") && !spacePos[(arrayIndex-1) + 2*spaces].includes("3-")) {
-                  i = spaces;
+
+              // Convert 4
+              if (parseInt(spaces) === -4) {
+                  spaces = 4;
               }
+
+              var style = true;
+              var returnIndex = arrayIndex;
               // Cycle through loop moving pawn 1 space at a time
               for (i; i < spaces; i++) {
                       var endOfBoard = false;
+
                       // if pawn is at end of board 
                       if (arrayIndex === spacePos.length - 1) {
                         endOfBoard = true;
                         arrayIndex = 1;
-                      } 
+                      }
+
                       // If pawn is near home stretch
                       else if (spacePos[(arrayIndex - 1) + 2].includes('3-')) {
                         // Check for correct color
@@ -80,18 +80,44 @@
                           arrayIndex += 12;
                         }
                       } 
+
                       // if pawn is near start
                       else if (spacePos[(arrayIndex - 1) + 2].includes('5-') && !spacePos[(arrayIndex - 1) + 2].includes('3-5')){
                         arrayIndex += 2;
                       }
-                      // increase index by 2 and style
+
+                      // If spaces if 4 card and it is near beginning of array
+                      else if (spaces == 4 && arrayIndex === 1 ) {
+                        arrayIndex = spacePos.length - 1;
+                        endOfBoard = true;
+                      }
+                      // If spaces is a 4 card, decrease index by 2
+                      else if (spaces == 4) {
+                        arrayIndex -= 2;
+                        endOfBoard = true;
+                      }
+
+                      // increase index by 2
                       if (!endOfBoard) {
                         arrayIndex += 2;
                       }
-                      imgObj.style.left = spacePos[arrayIndex][0] + 'px';
-                      imgObj.style.top = spacePos[arrayIndex][1] + 'px';
-                      
-                }
+
+                       // If pawn will pass home
+                      if (spacePos[arrayIndex - 1].includes('3-6') && i !== spaces) {
+                        arrayIndex = returnIndex; 
+                        i = spaces;
+                        console.log("check");
+                        style = false;
+                      }
+                } // end for
+
+                  // Style
+                  if (style) {
+                    imgObj.style.left = spacePos[arrayIndex][0] + 'px';
+                    imgObj.style.top = spacePos[arrayIndex][1] + 'px';
+                  }  
+
+                /* If pawn lands on a slide
                 if(spacePos[arrayIndex-1].includes('b2')||spacePos[arrayIndex-1].includes('y2')||spacePos[arrayIndex-1].includes('g2')||spacePos[arrayIndex-1].includes('r2')){
                     if (pawn.charAt(0).toUpperCase() != spacePos[arrayIndex-1].charAt(0).toUpperCase()) {
                         imgObj.style.left = spacePos[arrayIndex+18][0] + 'px';
@@ -103,15 +129,29 @@
                       imgObj.style.left = spacePos[arrayIndex+8][0] + 'px';
                       imgObj.style.top = spacePos[arrayIndex+8][1] + 'px';
                     }
-                  }
+                } */
+
               // Save position
               savePosition();
+
+              // Set info
+              setInfo(type);
+
+              // Check for win
+             //  win(0);
+
+              // check win again
+              // win(1);
             }
+
+
             function savePosition() {
               var pawns = [];
               var x = 0;
               var y = 0;
-              // Get position that items are currently at
+
+              // Get position that items are currently at and put them
+              // in an array
               while (x < 4 && y < 4) {
                 var pawn = 'R' + (x+1).toString();
                 var left = getCssProperty(pawn, 'left').replace("px","");
@@ -124,10 +164,76 @@
                 x++;
                 y++;
               }
-              // Store them in session
-              sessionStorage.setItem("pawns", JSON.stringify(pawns));
+              sessionStorage.setItem('pawns', JSON.stringify(pawns));
             }
+
             function clear() {
               sessionStorage.clear();
             }
+
+            // 0 for player pawn move, 1 for enemy
+            function setInfo(type) {
+              if (parseInt(type) === 0) {
+                var pawnType = "movePawn";
+                var name = "You";
+              } else {
+                var pawnType = "moveComp";
+                var name = "Enemy";
+              }
+              var info = document.getElementById(pawnType).getAttribute('value').split(",");
+              var pawn = info[0];
+              var spaces = info[1];
+              var newSpace = info[2].toLowerCase();
+              spaces = parseInt(spaces);
+              var displaySpaces = spaces;
+
+              // set card to display as 4
+              if (spaces === -4) {
+                displaySpaces = 4;
+              }
+
+              // Set card
+              var card = "images/" + spaces + ".jpg";
+              if (parseInt(spaces) === 13) {
+                var card = "images/0.jpg";
+              } else if (parseInt(spaces) === -4) {
+                var card = "images/4.jpg";
+              }
+              document.getElementById("card").src = card; 
+
+              // If you get a sorry card 
+              if (spaces === 13) {
+                document.getElementById('info').innerHTML = name + " drew Sorry! Move 13 spaces";
+              } // otherwise
+              else {
+                document.getElementById('info').innerHTML = name + " drew a(n) " + displaySpaces;
+              } 
+
+
+              // Set timeout for next item
+              window.setTimeout(function()
+                { // Make it out of start
+                  if ((spaces == 1 || spaces == 2 || spaces == 13) && spacePos[arrayIndex-1].includes("5")) {
+                    document.getElementById('info').innerHTML = "The pawn can move out of start";
+                  } else if ((spaces != 1 || spaces != 2 || spaces != 13) && spacePos[arrayIndex-1].includes("5-1")) {
+                    document.getElementById('info').innerHTML = name +" must draw a 1, 2, or Sorry! card to move out of start";
+                  }
+
+                  // Near home
+                  if (spacePos[(arrayIndex-1)].includes("3-")) {
+                    if (spacePos[arrayIndex-1].includes('3-6')) {
+                      document.getElementById('info').innerHTML = "Pawn is already at home!";
+                    }
+                  }
+                }, 2000);
+
+                // enemy move
+              if (parseInt(type) === 0) {
+                move(1);
+              }
+
+            } // end function
+
+        
+
       </script>

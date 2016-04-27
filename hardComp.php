@@ -92,7 +92,7 @@ if($cardNumber == 1){
 		$pieceNumber=1;
 
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -234,7 +234,7 @@ if($cardNumber == 1){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -381,7 +381,7 @@ if($cardNumber == 1){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -527,7 +527,7 @@ if($cardNumber == 1){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -675,7 +675,7 @@ if($cardNumber == 1){
 		// store pawn number in variable
 		$pieceNumber=1;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 
 		// increment the index by the card drawn
 		$index1 += $cardNumber;
@@ -816,7 +816,7 @@ if($cardNumber == 1){
 		// declare piece number
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 
 		// increment the index by the card drawn
 		$index2 += $cardNumber;
@@ -962,7 +962,7 @@ if($cardNumber == 1){
 		// declare piece number
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 
 		// increment the index by the card drawn
 		$index3 += $cardNumber;
@@ -1107,7 +1107,7 @@ if($cardNumber == 1){
 		// declare piece number
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 
 		// increment the index by the card drawn
 		$index4 += $cardNumber;
@@ -1314,7 +1314,7 @@ else if($cardNumber==2){
 			
 		$index1 = $board->getIndex($originalSpace1);
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 
 		// increment the index by 1 for special case of two
 		$index1 += 1;
@@ -1454,7 +1454,7 @@ else if($cardNumber==2){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -1601,7 +1601,7 @@ else if($cardNumber==2){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -1747,7 +1747,7 @@ else if($cardNumber==2){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -1895,7 +1895,7 @@ else if($cardNumber==2){
 		$pieceNumber=1;
 
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -2037,7 +2037,7 @@ else if($cardNumber==2){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -2183,7 +2183,7 @@ else if($cardNumber==2){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -2329,7 +2329,7 @@ else if($cardNumber==2){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -2482,7 +2482,7 @@ else if($cardNumber==3){
 		$pieceNumber=1;
 
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -2624,7 +2624,7 @@ else if($cardNumber==3){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -2770,7 +2770,7 @@ else if($cardNumber==3){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -2916,7 +2916,7 @@ else if($cardNumber==3){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -3073,7 +3073,7 @@ else if($cardNumber==4){
 		$pieceNumber=1;
 
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -3215,7 +3215,7 @@ else if($cardNumber==4){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -3361,7 +3361,7 @@ else if($cardNumber==4){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -3507,7 +3507,7 @@ else if($cardNumber==4){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -3663,7 +3663,7 @@ else if($cardNumber==5){
 		$pieceNumber=1;
 
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -3805,7 +3805,7 @@ else if($cardNumber==5){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -3951,7 +3951,7 @@ else if($cardNumber==5){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -4097,7 +4097,7 @@ else if($cardNumber==5){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -4253,7 +4253,7 @@ else if($cardNumber==7){
 		$pieceNumber=1;
 
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -4395,7 +4395,7 @@ else if($cardNumber==7){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -4541,7 +4541,7 @@ else if($cardNumber==7){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -4687,7 +4687,7 @@ else if($cardNumber==7){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -4843,7 +4843,7 @@ else if($cardNumber==8){
 		$pieceNumber=1;
 
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -4985,7 +4985,7 @@ else if($cardNumber==8){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -5131,7 +5131,7 @@ else if($cardNumber==8){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -5277,7 +5277,7 @@ else if($cardNumber==8){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -5438,7 +5438,7 @@ else if($cardNumber==10){
 		$pieceNumber=1;
 
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber1.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber1.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -5580,7 +5580,7 @@ else if($cardNumber==10){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber1.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber1.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -5726,7 +5726,7 @@ else if($cardNumber==10){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber1.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber1.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -5872,7 +5872,7 @@ else if($cardNumber==10){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber1.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber1.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -6020,7 +6020,7 @@ else if($cardNumber==10){
 		$pieceNumber=1;
 
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber2.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber2.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -6162,7 +6162,7 @@ else if($cardNumber==10){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber2.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber2.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -6308,7 +6308,7 @@ else if($cardNumber==10){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber2.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber2.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -6454,7 +6454,7 @@ else if($cardNumber==10){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber2.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber2.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -6617,7 +6617,7 @@ else if($cardNumber==12){
 		$pieceNumber=1;
 
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index1 = $board->getIndex($originalSpace1);
 
@@ -6759,7 +6759,7 @@ else if($cardNumber==12){
 		// move pawn2
 		$pieceNumber=2;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index2 = $board->getIndex($originalSpace2);
 
@@ -6905,7 +6905,7 @@ else if($cardNumber==12){
 		// move pawn3
 		$pieceNumber=3;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index3 = $board->getIndex($originalSpace3);
 
@@ -7051,7 +7051,7 @@ else if($cardNumber==12){
 		// move pawn4
 		$pieceNumber=4;
 
-		echo '<div id="movePawn" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
+		echo '<div id="moveComp" value="'.$compColor.$pieceNumber.','.$cardNumber.'"</div>';
 			
 		$index4 = $board->getIndex($originalSpace4);
 
@@ -7203,7 +7203,7 @@ else if($cardNumber==12){
 	
 
 	$board = new Board(); // Create a board
-	echo '<div id="movePawn" value="'.$pieceColor.$pieceNumber.','.$cardNumber.'"</div>'; // Inject div so they can grab from javascript
+	echo '<div id="moveComp" value="'.$pieceColor.$pieceNumber.','.$cardNumber.'"</div>'; // Inject div so they can grab from javascript
 
 
 	// Find the current position of the piece
