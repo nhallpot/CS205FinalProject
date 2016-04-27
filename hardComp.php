@@ -419,7 +419,7 @@ if($cardNumber == 1){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -441,7 +441,7 @@ if($cardNumber == 1){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -571,7 +571,7 @@ if($cardNumber == 1){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -593,7 +593,7 @@ if($cardNumber == 1){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -1022,7 +1022,7 @@ if($cardNumber == 1){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -1044,7 +1044,7 @@ if($cardNumber == 1){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -1173,7 +1173,7 @@ if($cardNumber == 1){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -1195,7 +1195,7 @@ if($cardNumber == 1){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -1689,7 +1689,7 @@ else if($cardNumber==2){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -1711,7 +1711,7 @@ else if($cardNumber==2){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -1841,7 +1841,7 @@ else if($cardNumber==2){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -1863,7 +1863,7 @@ else if($cardNumber==2){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -2295,7 +2295,7 @@ else if($cardNumber==2){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -2317,7 +2317,7 @@ else if($cardNumber==2){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -2447,7 +2447,7 @@ else if($cardNumber==2){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -2469,7 +2469,7 @@ else if($cardNumber==2){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -2962,7 +2962,7 @@ else if($cardNumber==3){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -2984,7 +2984,7 @@ else if($cardNumber==3){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -3114,7 +3114,7 @@ else if($cardNumber==3){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -3136,7 +3136,7 @@ else if($cardNumber==3){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -3629,7 +3629,7 @@ else if($cardNumber==4){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -3651,7 +3651,7 @@ else if($cardNumber==4){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -3781,7 +3781,7 @@ else if($cardNumber==4){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -3803,7 +3803,7 @@ else if($cardNumber==4){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -4296,7 +4296,7 @@ else if($cardNumber==5){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -4318,7 +4318,7 @@ else if($cardNumber==5){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -4448,7 +4448,7 @@ else if($cardNumber==5){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -4470,7 +4470,7 @@ else if($cardNumber==5){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -4964,7 +4964,7 @@ else if($cardNumber==7){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -4986,7 +4986,7 @@ else if($cardNumber==7){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -5116,7 +5116,7 @@ else if($cardNumber==7){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -5138,7 +5138,7 @@ else if($cardNumber==7){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -5631,7 +5631,7 @@ else if($cardNumber==8){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -5653,7 +5653,7 @@ else if($cardNumber==8){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -5783,7 +5783,7 @@ else if($cardNumber==8){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -5805,7 +5805,7 @@ else if($cardNumber==8){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -6302,7 +6302,7 @@ else if($cardNumber==10){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -6324,7 +6324,7 @@ else if($cardNumber==10){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -6454,7 +6454,7 @@ else if($cardNumber==10){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -6476,7 +6476,7 @@ else if($cardNumber==10){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -6908,7 +6908,7 @@ else if($cardNumber==10){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -6930,7 +6930,7 @@ else if($cardNumber==10){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -7060,7 +7060,7 @@ else if($cardNumber==10){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -7082,7 +7082,7 @@ else if($cardNumber==10){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -7577,7 +7577,7 @@ else if($cardNumber==11){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -7599,7 +7599,7 @@ else if($cardNumber==11){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -7729,7 +7729,7 @@ else if($cardNumber==11){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -7751,7 +7751,7 @@ else if($cardNumber==11){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -8244,7 +8244,7 @@ else if($cardNumber==12){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -8266,7 +8266,7 @@ else if($cardNumber==12){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -8396,7 +8396,7 @@ else if($cardNumber==12){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -8418,7 +8418,7 @@ else if($cardNumber==12){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -8911,7 +8911,7 @@ else if($cardNumber==13){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah3 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -8933,7 +8933,7 @@ else if($cardNumber==13){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
@@ -9063,7 +9063,7 @@ else if($cardNumber==13){
 		// query the computer's pawns and store them in an array
 		$selectQuery = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$compColor."'";	
 		$pieceToMove = $thisDatabaseReader->select($selectQuery,"");
-		print 'alah4 ';
+		
 
 		// store properties of each computer piece in variables
 		$originalSpaceColor1 = $pieceToMove[0][0];
@@ -9085,7 +9085,7 @@ else if($cardNumber==13){
 		$originalSpaceNumber4 = $pieceToMove[3][1];
 		$originalSpace4 = strtolower($originalSpaceColor4.$originalSpaceNumber4);
 		$index4 = $board->getIndex($originalSpace4);
-		print'poopyyyy';
+		
 
 		// query the player's pieces and store them in an array
 		$selectQuery2 = "SELECT p.SpaceColor, p.SpaceNumber FROM Piece p WHERE p.Color = '".$playerColor."'";
