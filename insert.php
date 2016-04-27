@@ -1,4 +1,6 @@
+
 <?php
+	// @author Noah
     include "top.php";
 
 	// PHP Script to "start" the game by inserting data into the database. 

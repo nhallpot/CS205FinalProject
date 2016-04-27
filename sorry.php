@@ -4,7 +4,7 @@ $debug = false; // Set to true for debugging
 //
 // This is where all of the game logic will go.
 // All of the database calls from post requests will be here
-// 
+//  @author Noah
 //##############################################################################
 include "top.php";
 include "classes.php";
@@ -155,6 +155,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// End the form
 	print('<input type="submit" id="drawCard" name="Draw Card" value="Draw Another Card" onclick="savePosition"/>');
 	print("</form>");
+
+
+	// Can't figure out why this is breaking the HTTP flow
+	// include "hardComp.php";
 }
 print '</article>';
 ?>
