@@ -29,6 +29,7 @@ print '<h2>Sample Page</h2>';
 		//else if the player is not on the 3rd min square, move to the 3rd minimum
 		//else if the player is on the 4th min square, move to the minimum
 		//else move to the 4th minimum
+// I love when Noah takes over my computer to help with f$@!@ source control
 print '</article>';
 include "footer.php";
 ?>
